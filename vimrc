@@ -19,7 +19,7 @@ set softtabstop=2
 set expandtab
 set backspace=indent,eol,start
 set autoindent
-set list listchars=tab:\ \ ,trail:·,eol:
+set list listchars=tab:\ \ ,trail:·
 
 " misc
 set visualbell
