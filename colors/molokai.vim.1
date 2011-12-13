@@ -1,0 +1,1151 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>
+  sjl / dotfiles / source &mdash; Bitbucket
+</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <!--[if lt IE 9]>
+  <script src="https://dwz7u9t8u8usb.cloudfront.net/m/1e5f56e3c501/js/lib/html5.js"></script>
+  <![endif]-->
+
+  <script>
+    (function (window) {
+      // prevent stray occurrences of `console.log` from causing errors in IE
+      var console = window.console || (window.console = {});
+      console.log || (console.log = function () {});
+
+      var BB = window.BB || (window.BB = {});
+      BB.debug = false;
+      BB.cname = false;
+      BB.CANON_URL = 'https://bitbucket.org';
+      BB.MEDIA_URL = 'https://dwz7u9t8u8usb.cloudfront.net/m/1e5f56e3c501/';
+      BB.images = {
+        noAvatar: 'https://dwz7u9t8u8usb.cloudfront.net/m/1e5f56e3c501/img/no_avatar.png'
+      };
+      BB.user = {
+        isKbdShortcutsEnabled: true,
+        isSshEnabled: false
+      };
+      BB.user.has = (function () {
+        var betaFeatures = [];
+        betaFeatures.push('repo2');
+        return function (feature) {
+          return _.contains(betaFeatures, feature);
+        };
+      }());
+      BB.repo || (BB.repo = {});
+  
+  
+      BB.user.isAdmin = false;
+      BB.repo.id = 10232;
+    
+    
+      BB.repo.language = null;
+      BB.repo.pygmentsLanguage = null;
+    
+    
+      BB.repo.slug = 'dotfiles';
+    
+    
+      BB.repo.owner = {
+        username: 'sjl'
+      };
+    
+      // Coerce `BB.repo` to a string to get
+      // "davidchambers/mango" or whatever.
+      BB.repo.toString = function () {
+        return BB.cname ? this.slug : this.owner.username + '/' + this.slug;
+      }
+    
+      BB.changeset = '6474ce25ef1e'
+    
+    
+  
+    }(this));
+  </script>
+
+  
+
+
+  <link rel="stylesheet" href="https://dwz7u9t8u8usb.cloudfront.net/m/1e5f56e3c501/bun/css/bundle.css"/>
+
+
+
+  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Bitbucket" />
+  <link rel="icon" href="https://dwz7u9t8u8usb.cloudfront.net/m/1e5f56e3c501/img/logo_new.png" type="image/png" />
+  <link type="text/plain" rel="author" href="/humans.txt" />
+
+
+  
+    <script src="https://dwz7u9t8u8usb.cloudfront.net/m/1e5f56e3c501/bun/js/bundle.js"></script>
+  
+
+
+
+</head>
+
+<body id="" class="">
+  <script type="text/javascript">
+    if (!RegExp(" AppleWebKit/").test(navigator.userAgent)) {
+    $('body').addClass('non-webkit');
+    }
+  </script>
+  <!--[if IE 8]>
+  <script>jQuery(document.body).addClass('ie8')</script>
+  <![endif]-->
+  <!--[if IE 9]>
+  <script>jQuery(document.body).addClass('ie9')</script>
+  <![endif]-->
+
+  <div id="wrapper">
+
+
+
+  <div id="header-wrap">
+    <div id="header">
+    <ul id="global-nav">
+      <li><a class="home" href="http://www.atlassian.com">Atlassian Home</a></li>
+      <li><a class="docs" href="http://confluence.atlassian.com/display/BITBUCKET">Documentation</a></li>
+      <li><a class="support" href="/support">Support</a></li>
+      <li><a class="blog" href="http://blog.bitbucket.org">Blog</a></li>
+      <li><a class="forums" href="http://groups.google.com/group/bitbucket-users">Forums</a></li>
+    </ul>
+    <a href="/" id="logo">Bitbucket by Atlassian</a>
+
+    <div id="main-nav">
+    
+      <ul class="clearfix">
+        <li><a href="/plans">Pricing &amp; signup</a></li>
+        <li><a id="explore-link" href="/explore">Explore Bitbucket</a></li>
+        <li><a href="/account/signin/?next=/sjl/dotfiles/src/tip/vim/colors/molokai.vim">Log in</a></li>
+        
+
+<li class="search-box">
+  
+    <form action="/repo/all">
+      <input type="search" results="5" autosave="bitbucket-explore-search"
+             name="name" id="searchbox"
+             placeholder="Find a project" />
+  
+  </form>
+</li>
+
+      </ul>
+    
+    </div>
+    </div>
+  </div>
+
+    <div id="header-messages">
+  
+  
+    
+    
+    
+    
+  
+
+    
+   </div>
+
+
+
+    <div id="content">
+      <div id="source">
+      
+  
+  
+
+
+
+
+
+  <script>
+    jQuery(function ($) {
+        var cookie = $.cookie,
+            cookieOptions, date,
+            $content = $('#content'),
+            $pane = $('#what-is-bitbucket'),
+            $hide = $pane.find('[href="#hide"]').css('display', 'block').hide();
+
+        date = new Date();
+        date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
+        cookieOptions = { path: '/', expires: date };
+
+        if (cookie('toggle_status') == 'hide') $content.addClass('repo-desc-hidden');
+
+        $('#toggle-repo-content').click(function (event) {
+            event.preventDefault();
+            $content.toggleClass('repo-desc-hidden');
+            cookie('toggle_status', cookie('toggle_status') == 'show' ? 'hide' : 'show', cookieOptions);
+        });
+
+        if (!cookie('hide_intro_message')) $pane.show();
+
+        $hide.click(function (event) {
+            event.preventDefault();
+            cookie('hide_intro_message', true, cookieOptions);
+            $pane.slideUp('slow');
+        });
+
+        $pane.hover(
+            function () { $hide.fadeIn('fast'); },
+            function () { $hide.fadeOut('fast'); });
+
+      (function () {
+        // Update "recently-viewed-repos" cookie for
+        // the "repositories" drop-down.
+        var
+          id = BB.repo.id,
+          cookieName = 'recently-viewed-repos_' + BB.user.id,
+          rvr = cookie(cookieName),
+          ids = rvr? rvr.split(','): [],
+          idx = _.indexOf(ids, '' + id);
+
+        // Remove `id` from `ids` if present.
+        if (~idx) ids.splice(idx, 1);
+
+        cookie(
+          cookieName,
+          // Insert `id` as the first item, then call
+          // `join` on the resulting array to produce
+          // something like "114694,27542,89002,84570".
+          [id].concat(ids.slice(0, 4)).join(),
+          {path: '/', expires: 1e6} // "never" expires
+        );
+      }());
+    });
+  </script>
+
+
+
+  
+  
+  
+  
+  
+    <div id="what-is-bitbucket" class="new-to-bitbucket">
+      <h2>Steve Losh <span id="slogan">is sharing code with you</span></h2>
+      <img src="https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2009/Feb/09/85fb330c3e519d68c188bc728dd2c0f2_avatar.jpeg" alt="" class="avatar" />
+      <p>Bitbucket is a code hosting site. Unlimited public and private repositories. Free for small teams.</p>
+      <div class="primary-action-link signup"><a href="/account/signup/?utm_source=internal&utm_medium=banner&utm_campaign=what_is_bitbucket">Try Bitbucket free</a></div>
+      <a href="#hide" title="Don't show this again">Don't show this again</a>
+    </div>
+  
+
+
+<div id="tabs">
+  <ul class="tabs">
+    <li>
+      <a href="/sjl/dotfiles/overview" id="repo-overview-link">Overview</a>
+    </li>
+
+    <li>
+      <a href="/sjl/dotfiles/downloads" id="repo-downloads-link">Downloads (<span id="downloads-count">0</span>)</a>
+    </li>
+
+    
+
+    <li>
+      <a href="/sjl/dotfiles/pull-requests" id="repo-pr-link">Pull requests (0)</a>
+    </li>
+
+    <li class="selected">
+      
+        <a href="/sjl/dotfiles/src" id="repo-source-link">Source</a>
+      
+    </li>
+
+    <li>
+      <a href="/sjl/dotfiles/changesets" id="repo-commits-link">Commits</a>
+    </li>
+
+    <li id="wiki-tab" class="dropdown"
+      style="display:
+                        none  
+        
+      ">
+      <a href="/sjl/dotfiles/wiki" id="repo-wiki-link">Wiki</a>
+    </li>
+
+    <li id="issues-tab" class="dropdown inertial-hover"
+      style="display:
+                      none  
+        
+      ">
+      <a href="/sjl/dotfiles/issues?status=new&amp;status=open" id="repo-issues-link">Issues (0) &raquo;</a>
+      <ul>
+        <li><a href="/sjl/dotfiles/issues/new">Create new issue</a></li>
+        <li><a href="/sjl/dotfiles/issues?status=new">New issues</a></li>
+        <li><a href="/sjl/dotfiles/issues?status=new&amp;status=open">Open issues</a></li>
+        <li><a href="/sjl/dotfiles/issues?status=duplicate&amp;status=invalid&amp;status=resolved&amp;status=wontfix">Closed issues</a></li>
+        
+        <li><a href="/sjl/dotfiles/issues">All issues</a></li>
+        <li><a href="/sjl/dotfiles/issues/query">Advanced query</a></li>
+      </ul>
+    </li>
+
+    
+
+    <li class="secondary">
+      <a href="/sjl/dotfiles/descendants">Forks/queues (12)</a>
+    </li>
+
+    <li class="secondary">
+      <a href="/sjl/dotfiles/zealots">Followers (<span id="followers-count">148</span>)</a>
+    </li>
+  </ul>
+</div>
+
+
+
+ 
+
+  <div class="repo-menu" id="repo-menu">
+    <ul id="repo-menu-links">
+    
+      <li>
+        <a href="/sjl/dotfiles/rss" class="rss" title="RSS feed for dotfiles">RSS</a>
+      </li>
+
+      <li><a href="/sjl/dotfiles/fork" class="fork">fork</a></li>
+      
+        
+          <li><a href="/sjl/dotfiles/hack" class="patch-queue">patch queue</a></li>
+        
+      
+      <li>
+        <a rel="nofollow" href="/sjl/dotfiles/follow" class="follow">follow</a>
+      </li>
+      
+          
+      
+      
+        <li class="get-source inertial-hover">
+          <a class="source">get source</a>
+          <ul class="downloads">
+            
+              
+              <li><a rel="nofollow" href="/sjl/dotfiles/get/6474ce25ef1e.zip">zip</a></li>
+              <li><a rel="nofollow" href="/sjl/dotfiles/get/6474ce25ef1e.tar.gz">gz</a></li>
+              <li><a rel="nofollow" href="/sjl/dotfiles/get/6474ce25ef1e.tar.bz2">bz2</a></li>
+            
+          </ul>
+        </li>
+      
+    </ul>
+
+  
+    <ul class="metadata">
+      
+      
+        <li class="branches inertial-hover">branches
+          <ul>
+            <li><a href="/sjl/dotfiles/src/6474ce25ef1e">default</a>
+              
+              
+            </li>
+          </ul>
+        </li>
+      
+      
+      <li class="tags inertial-hover">tags
+        <ul>
+          <li><a href="/sjl/dotfiles/src/6474ce25ef1e">tip</a>
+            
+            </li>
+        </ul>
+      </li>
+     
+     
+    </ul>
+  
+</div>
+
+<div class="repo-menu" id="repo-desc">
+    <ul id="repo-menu-links-mini">
+      
+
+      
+      <li>
+        <a href="/sjl/dotfiles/rss" class="rss" title="RSS feed for dotfiles"></a>
+      </li>
+
+      <li><a href="/sjl/dotfiles/fork" class="fork" title="Fork"></a></li>
+      
+        
+          <li><a href="/sjl/dotfiles/hack" class="patch-queue" title="Patch queue"></a></li>
+        
+      
+      <li>
+        <a rel="nofollow" href="/sjl/dotfiles/follow" class="follow">follow</a>
+      </li>
+      
+          
+      
+      
+        <li>
+          <a class="source" title="Get source"></a>
+          <ul class="downloads">
+            
+              
+              <li><a rel="nofollow" href="/sjl/dotfiles/get/6474ce25ef1e.zip">zip</a></li>
+              <li><a rel="nofollow" href="/sjl/dotfiles/get/6474ce25ef1e.tar.gz">gz</a></li>
+              <li><a rel="nofollow" href="/sjl/dotfiles/get/6474ce25ef1e.tar.bz2">bz2</a></li>
+            
+          </ul>
+        </li>
+      
+    </ul>
+
+    <h3 id="repo-heading" class="public hg">
+      <a class="owner-username" href="/sjl">sjl</a> /
+      <a class="repo-name" href="/sjl/dotfiles/src">dotfiles</a>
+    
+
+    
+    </h3>
+
+        
+        <p class="repo-desc-description">My command-line life.
+
+Yes, I&#39;ve changed any passwords and/or API keys that were once stored in here...</p>
+        
+
+  <div id="repo-desc-cloneinfo">Clone this repository (size: 2.1 MB):
+    <a href="https://bitbucket.org/sjl/dotfiles" class="https">HTTPS</a> /
+    <a href="ssh://hg@bitbucket.org/sjl/dotfiles" class="ssh">SSH</a>
+    <pre id="clone-url-https">hg clone https://bitbucket.org/sjl/dotfiles</pre>
+    <pre id="clone-url-ssh">hg clone ssh://hg@bitbucket.org/sjl/dotfiles</pre>
+    
+  </div>
+
+        <a href="#" id="toggle-repo-content"></a>
+
+        
+
+</div>
+
+
+
+
+      
+  <div id="source-container">
+    
+
+  <div id="source-path">
+    <h1>
+      <a href="/sjl/dotfiles/src" class="src-pjax">dotfiles</a> /
+
+  
+    
+      <a href="/sjl/dotfiles/src/6474ce25ef1e/vim/" class="src-pjax">vim</a> /
+    
+  
+
+  
+    
+      <a href="/sjl/dotfiles/src/6474ce25ef1e/vim/colors/" class="src-pjax">colors</a> /
+    
+  
+
+  
+    
+      <span>molokai.vim</span>
+    
+  
+
+    </h1>
+  </div>
+
+  <div class="labels labels-csv">
+  
+    <dl>
+  
+    
+  
+  
+    
+  
+  
+    <dt>Branch</dt>
+    
+      
+        <dd class="branch unabridged"><a href="/sjl/dotfiles/changesets/tip/branch(%22default%22)">default</a></dd>
+      
+    
+  
+</dl>
+
+  
+  </div>
+
+
+  
+  <div id="source-view">
+    <div class="header">
+      <ul class="metadata">
+        <li><code>6474ce25ef1e</code></li>
+        
+          
+            <li>230 loc</li>
+          
+        
+        <li>8.0 KB</li>
+      </ul>
+      <ul class="source-view-links">
+        
+        <li><a id="embed-link" href="https://bitbucket.org/sjl/dotfiles/src/6474ce25ef1e/vim/colors/molokai.vim?embed=t">embed</a></li>
+        
+        <li><a href="/sjl/dotfiles/history/vim/colors/molokai.vim">history</a></li>
+        
+        <li><a href="/sjl/dotfiles/annotate/6474ce25ef1e/vim/colors/molokai.vim">annotate</a></li>
+        
+        <li><a href="/sjl/dotfiles/raw/6474ce25ef1e/vim/colors/molokai.vim">raw</a></li>
+        <li>
+          <form action="/sjl/dotfiles/diff/vim/colors/molokai.vim" class="source-view-form">
+          
+            <input type="hidden" name="diff2" value="4757d3a7cd62" />
+            <select name="diff1">
+            
+              
+                <option value="4757d3a7cd62">4757d3a7cd62</option>
+              
+            
+              
+                <option value="7d77a8a00a2b">7d77a8a00a2b</option>
+              
+            
+              
+                <option value="613e1681934a">613e1681934a</option>
+              
+            
+              
+                <option value="b129d51073d8">b129d51073d8</option>
+              
+            
+              
+                <option value="959a5c4fc9fb">959a5c4fc9fb</option>
+              
+            
+              
+                <option value="5b9c4d43e1a9">5b9c4d43e1a9</option>
+              
+            
+              
+                <option value="517ccbe9799e">517ccbe9799e</option>
+              
+            
+              
+                <option value="501b64da8d72">501b64da8d72</option>
+              
+            
+              
+                <option value="81859b5dd262">81859b5dd262</option>
+              
+            
+              
+                <option value="26dcdc89026f">26dcdc89026f</option>
+              
+            
+              
+                <option value="d4d26f2b7941">d4d26f2b7941</option>
+              
+            
+              
+                <option value="3269b4a6ff1f">3269b4a6ff1f</option>
+              
+            
+              
+                <option value="fd0cc2799a31">fd0cc2799a31</option>
+              
+            
+              
+                <option value="4bd40ce732d7">4bd40ce732d7</option>
+              
+            
+              
+                <option value="65724f30e2e7">65724f30e2e7</option>
+              
+            
+              
+                <option value="cfd5d659d737">cfd5d659d737</option>
+              
+            
+              
+                <option value="90083699bcd2">90083699bcd2</option>
+              
+            
+              
+                <option value="662f1676bfb4">662f1676bfb4</option>
+              
+            
+              
+                <option value="7defffaa1a19">7defffaa1a19</option>
+              
+            
+              
+                <option value="a4cd3c666a79">a4cd3c666a79</option>
+              
+            
+              
+                <option value="799882f309fc">799882f309fc</option>
+              
+            
+              
+                <option value="25deb560bf93">25deb560bf93</option>
+              
+            
+              
+                <option value="e261bb2a24e2">e261bb2a24e2</option>
+              
+            
+              
+                <option value="cb726f354f48">cb726f354f48</option>
+              
+            
+              
+                <option value="5e9b8669ce08">5e9b8669ce08</option>
+              
+            
+            </select>
+            <input type="submit" value="diff" />
+          
+          </form>
+        </li>
+      </ul>
+    </div>
+  
+    <div>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#cl-1">  1</a>
+<a href="#cl-2">  2</a>
+<a href="#cl-3">  3</a>
+<a href="#cl-4">  4</a>
+<a href="#cl-5">  5</a>
+<a href="#cl-6">  6</a>
+<a href="#cl-7">  7</a>
+<a href="#cl-8">  8</a>
+<a href="#cl-9">  9</a>
+<a href="#cl-10"> 10</a>
+<a href="#cl-11"> 11</a>
+<a href="#cl-12"> 12</a>
+<a href="#cl-13"> 13</a>
+<a href="#cl-14"> 14</a>
+<a href="#cl-15"> 15</a>
+<a href="#cl-16"> 16</a>
+<a href="#cl-17"> 17</a>
+<a href="#cl-18"> 18</a>
+<a href="#cl-19"> 19</a>
+<a href="#cl-20"> 20</a>
+<a href="#cl-21"> 21</a>
+<a href="#cl-22"> 22</a>
+<a href="#cl-23"> 23</a>
+<a href="#cl-24"> 24</a>
+<a href="#cl-25"> 25</a>
+<a href="#cl-26"> 26</a>
+<a href="#cl-27"> 27</a>
+<a href="#cl-28"> 28</a>
+<a href="#cl-29"> 29</a>
+<a href="#cl-30"> 30</a>
+<a href="#cl-31"> 31</a>
+<a href="#cl-32"> 32</a>
+<a href="#cl-33"> 33</a>
+<a href="#cl-34"> 34</a>
+<a href="#cl-35"> 35</a>
+<a href="#cl-36"> 36</a>
+<a href="#cl-37"> 37</a>
+<a href="#cl-38"> 38</a>
+<a href="#cl-39"> 39</a>
+<a href="#cl-40"> 40</a>
+<a href="#cl-41"> 41</a>
+<a href="#cl-42"> 42</a>
+<a href="#cl-43"> 43</a>
+<a href="#cl-44"> 44</a>
+<a href="#cl-45"> 45</a>
+<a href="#cl-46"> 46</a>
+<a href="#cl-47"> 47</a>
+<a href="#cl-48"> 48</a>
+<a href="#cl-49"> 49</a>
+<a href="#cl-50"> 50</a>
+<a href="#cl-51"> 51</a>
+<a href="#cl-52"> 52</a>
+<a href="#cl-53"> 53</a>
+<a href="#cl-54"> 54</a>
+<a href="#cl-55"> 55</a>
+<a href="#cl-56"> 56</a>
+<a href="#cl-57"> 57</a>
+<a href="#cl-58"> 58</a>
+<a href="#cl-59"> 59</a>
+<a href="#cl-60"> 60</a>
+<a href="#cl-61"> 61</a>
+<a href="#cl-62"> 62</a>
+<a href="#cl-63"> 63</a>
+<a href="#cl-64"> 64</a>
+<a href="#cl-65"> 65</a>
+<a href="#cl-66"> 66</a>
+<a href="#cl-67"> 67</a>
+<a href="#cl-68"> 68</a>
+<a href="#cl-69"> 69</a>
+<a href="#cl-70"> 70</a>
+<a href="#cl-71"> 71</a>
+<a href="#cl-72"> 72</a>
+<a href="#cl-73"> 73</a>
+<a href="#cl-74"> 74</a>
+<a href="#cl-75"> 75</a>
+<a href="#cl-76"> 76</a>
+<a href="#cl-77"> 77</a>
+<a href="#cl-78"> 78</a>
+<a href="#cl-79"> 79</a>
+<a href="#cl-80"> 80</a>
+<a href="#cl-81"> 81</a>
+<a href="#cl-82"> 82</a>
+<a href="#cl-83"> 83</a>
+<a href="#cl-84"> 84</a>
+<a href="#cl-85"> 85</a>
+<a href="#cl-86"> 86</a>
+<a href="#cl-87"> 87</a>
+<a href="#cl-88"> 88</a>
+<a href="#cl-89"> 89</a>
+<a href="#cl-90"> 90</a>
+<a href="#cl-91"> 91</a>
+<a href="#cl-92"> 92</a>
+<a href="#cl-93"> 93</a>
+<a href="#cl-94"> 94</a>
+<a href="#cl-95"> 95</a>
+<a href="#cl-96"> 96</a>
+<a href="#cl-97"> 97</a>
+<a href="#cl-98"> 98</a>
+<a href="#cl-99"> 99</a>
+<a href="#cl-100">100</a>
+<a href="#cl-101">101</a>
+<a href="#cl-102">102</a>
+<a href="#cl-103">103</a>
+<a href="#cl-104">104</a>
+<a href="#cl-105">105</a>
+<a href="#cl-106">106</a>
+<a href="#cl-107">107</a>
+<a href="#cl-108">108</a>
+<a href="#cl-109">109</a>
+<a href="#cl-110">110</a>
+<a href="#cl-111">111</a>
+<a href="#cl-112">112</a>
+<a href="#cl-113">113</a>
+<a href="#cl-114">114</a>
+<a href="#cl-115">115</a>
+<a href="#cl-116">116</a>
+<a href="#cl-117">117</a>
+<a href="#cl-118">118</a>
+<a href="#cl-119">119</a>
+<a href="#cl-120">120</a>
+<a href="#cl-121">121</a>
+<a href="#cl-122">122</a>
+<a href="#cl-123">123</a>
+<a href="#cl-124">124</a>
+<a href="#cl-125">125</a>
+<a href="#cl-126">126</a>
+<a href="#cl-127">127</a>
+<a href="#cl-128">128</a>
+<a href="#cl-129">129</a>
+<a href="#cl-130">130</a>
+<a href="#cl-131">131</a>
+<a href="#cl-132">132</a>
+<a href="#cl-133">133</a>
+<a href="#cl-134">134</a>
+<a href="#cl-135">135</a>
+<a href="#cl-136">136</a>
+<a href="#cl-137">137</a>
+<a href="#cl-138">138</a>
+<a href="#cl-139">139</a>
+<a href="#cl-140">140</a>
+<a href="#cl-141">141</a>
+<a href="#cl-142">142</a>
+<a href="#cl-143">143</a>
+<a href="#cl-144">144</a>
+<a href="#cl-145">145</a>
+<a href="#cl-146">146</a>
+<a href="#cl-147">147</a>
+<a href="#cl-148">148</a>
+<a href="#cl-149">149</a>
+<a href="#cl-150">150</a>
+<a href="#cl-151">151</a>
+<a href="#cl-152">152</a>
+<a href="#cl-153">153</a>
+<a href="#cl-154">154</a>
+<a href="#cl-155">155</a>
+<a href="#cl-156">156</a>
+<a href="#cl-157">157</a>
+<a href="#cl-158">158</a>
+<a href="#cl-159">159</a>
+<a href="#cl-160">160</a>
+<a href="#cl-161">161</a>
+<a href="#cl-162">162</a>
+<a href="#cl-163">163</a>
+<a href="#cl-164">164</a>
+<a href="#cl-165">165</a>
+<a href="#cl-166">166</a>
+<a href="#cl-167">167</a>
+<a href="#cl-168">168</a>
+<a href="#cl-169">169</a>
+<a href="#cl-170">170</a>
+<a href="#cl-171">171</a>
+<a href="#cl-172">172</a>
+<a href="#cl-173">173</a>
+<a href="#cl-174">174</a>
+<a href="#cl-175">175</a>
+<a href="#cl-176">176</a>
+<a href="#cl-177">177</a>
+<a href="#cl-178">178</a>
+<a href="#cl-179">179</a>
+<a href="#cl-180">180</a>
+<a href="#cl-181">181</a>
+<a href="#cl-182">182</a>
+<a href="#cl-183">183</a>
+<a href="#cl-184">184</a>
+<a href="#cl-185">185</a>
+<a href="#cl-186">186</a>
+<a href="#cl-187">187</a>
+<a href="#cl-188">188</a>
+<a href="#cl-189">189</a>
+<a href="#cl-190">190</a>
+<a href="#cl-191">191</a>
+<a href="#cl-192">192</a>
+<a href="#cl-193">193</a>
+<a href="#cl-194">194</a>
+<a href="#cl-195">195</a>
+<a href="#cl-196">196</a>
+<a href="#cl-197">197</a>
+<a href="#cl-198">198</a>
+<a href="#cl-199">199</a>
+<a href="#cl-200">200</a>
+<a href="#cl-201">201</a>
+<a href="#cl-202">202</a>
+<a href="#cl-203">203</a>
+<a href="#cl-204">204</a>
+<a href="#cl-205">205</a>
+<a href="#cl-206">206</a>
+<a href="#cl-207">207</a>
+<a href="#cl-208">208</a>
+<a href="#cl-209">209</a>
+<a href="#cl-210">210</a>
+<a href="#cl-211">211</a>
+<a href="#cl-212">212</a>
+<a href="#cl-213">213</a>
+<a href="#cl-214">214</a>
+<a href="#cl-215">215</a>
+<a href="#cl-216">216</a>
+<a href="#cl-217">217</a>
+<a href="#cl-218">218</a>
+<a href="#cl-219">219</a>
+<a href="#cl-220">220</a>
+<a href="#cl-221">221</a>
+<a href="#cl-222">222</a>
+<a href="#cl-223">223</a>
+<a href="#cl-224">224</a>
+<a href="#cl-225">225</a>
+<a href="#cl-226">226</a>
+<a href="#cl-227">227</a>
+<a href="#cl-228">228</a>
+<a href="#cl-229">229</a>
+<a href="#cl-230">230</a>
+</pre></div></td><td class="code"><div class="highlight"><pre><a name="cl-1"></a><span class="c">&quot; Vim color file</span>
+<a name="cl-2"></a><span class="c">&quot;</span>
+<a name="cl-3"></a><span class="c">&quot; Author: Tomas Restrepo &lt;tomas@winterdom.com&gt;</span>
+<a name="cl-4"></a><span class="c">&quot; Modified by: Steve Losh &lt;steve@stevelosh.com&gt;</span>
+<a name="cl-5"></a><span class="c">&quot;</span>
+<a name="cl-6"></a><span class="c">&quot; Note: Based on the monokai theme for textmate</span>
+<a name="cl-7"></a><span class="c">&quot; by Wimer Hazenberg and its darker variant </span>
+<a name="cl-8"></a><span class="c">&quot; by Hamish Stuart Macpherson</span>
+<a name="cl-9"></a><span class="c">&quot;</span>
+<a name="cl-10"></a>
+<a name="cl-11"></a><span class="nb">hi</span> clear
+<a name="cl-12"></a>
+<a name="cl-13"></a><span class="k">set</span> <span class="nb">background</span><span class="p">=</span><span class="nb">dark</span>
+<a name="cl-14"></a><span class="k">let</span> g:colors_name<span class="p">=</span><span class="s2">&quot;molokai&quot;</span>
+<a name="cl-15"></a>
+<a name="cl-16"></a><span class="c">&quot; Basic Layout {{{</span>
+<a name="cl-17"></a><span class="nb">hi</span> Normal          guifg<span class="p">=</span>#F8F8F2 guibg<span class="p">=</span>#<span class="m">1</span>B<span class="m">1</span>E<span class="m">1</span>F
+<a name="cl-18"></a><span class="nb">hi</span> Folded          guifg<span class="p">=</span><span class="mh">#666666</span> guibg<span class="p">=</span><span class="nb">bg</span>
+<a name="cl-19"></a><span class="nb">hi</span> CursorLine                    guibg<span class="p">=</span><span class="mh">#232728</span>
+<a name="cl-20"></a><span class="nb">hi</span> CursorColumn                  guibg<span class="p">=</span><span class="mh">#232728</span>
+<a name="cl-21"></a><span class="nb">hi</span> ColorColumn                   guibg<span class="p">=</span><span class="mh">#232728</span>
+<a name="cl-22"></a><span class="nb">hi</span> LineNr          guifg<span class="p">=</span>#AAAAAA guibg<span class="p">=</span><span class="nb">bg</span>
+<a name="cl-23"></a><span class="nb">hi</span> FoldColumn      guifg<span class="p">=</span>#AAAAAA guibg<span class="p">=</span><span class="nb">bg</span>
+<a name="cl-24"></a><span class="nb">hi</span> VertSplit       guifg<span class="p">=</span>#AAAAAA guibg<span class="p">=</span><span class="nb">bg</span> gui<span class="p">=</span>none
+<a name="cl-25"></a><span class="nb">hi</span> Search          guifg<span class="p">=</span><span class="mh">#000000</span> guibg<span class="p">=</span>#E4E500
+<a name="cl-26"></a><span class="nb">hi</span> IncSearch       guibg<span class="p">=</span><span class="mh">#000000</span> guifg<span class="p">=</span>#FF8D00
+<a name="cl-27"></a><span class="c">&quot; }}}</span>
+<a name="cl-28"></a><span class="c">&quot; Syntax {{{</span>
+<a name="cl-29"></a><span class="nb">hi</span> Boolean         guifg<span class="p">=</span>#AE81FF
+<a name="cl-30"></a><span class="nb">hi</span> Comment         guifg<span class="p">=</span><span class="mh">#5c7176</span>
+<a name="cl-31"></a><span class="nb">hi</span> Character       guifg<span class="p">=</span>#E6DB74
+<a name="cl-32"></a><span class="nb">hi</span> Number          guifg<span class="p">=</span>#AE81FF
+<a name="cl-33"></a><span class="nb">hi</span> String          guifg<span class="p">=</span>#E6DB74
+<a name="cl-34"></a><span class="nb">hi</span> Conditional     guifg<span class="p">=</span>#F92672               gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-35"></a><span class="nb">hi</span> Constant        guifg<span class="p">=</span>#AE81FF               gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-36"></a><span class="nb">hi</span> Debug           guifg<span class="p">=</span>#BCA3A3               gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-37"></a><span class="nb">hi</span> Define          guifg<span class="p">=</span>#<span class="m">66</span>D<span class="m">9</span>EF
+<a name="cl-38"></a><span class="nb">hi</span> Delimiter       guifg<span class="p">=</span>#<span class="m">8</span>F<span class="m">8</span>F<span class="m">8</span>F
+<a name="cl-39"></a><span class="nb">hi</span> Float           guifg<span class="p">=</span>#AE81FF
+<a name="cl-40"></a><span class="nb">hi</span> Function        guifg<span class="p">=</span>#A6E22E
+<a name="cl-41"></a><span class="nb">hi</span> Identifier      guifg<span class="p">=</span>#FD971F
+<a name="cl-42"></a><span class="c">&quot; }}}</span>
+<a name="cl-43"></a><span class="c">&quot; Diffs {{{</span>
+<a name="cl-44"></a><span class="nb">hi</span> DiffAdd                       guibg<span class="p">=</span><span class="mh">#1e4313</span>
+<a name="cl-45"></a><span class="nb">hi</span> DiffChange      guifg<span class="p">=</span>#<span class="m">89807</span>D guibg<span class="p">=</span>#<span class="m">322</span>F<span class="m">2</span>D
+<a name="cl-46"></a><span class="nb">hi</span> DiffDelete      guifg<span class="p">=</span><span class="mh">#ff0088</span> guibg<span class="p">=</span>#<span class="m">1</span>B<span class="m">1</span>E<span class="m">1</span>F
+<a name="cl-47"></a><span class="nb">hi</span> DiffText                      guibg<span class="p">=</span>#<span class="m">4</span>A<span class="m">4340</span> gui<span class="p">=</span><span class="nb">italic</span><span class="p">,</span><span class="nb">bold</span>
+<a name="cl-48"></a><span class="c">&quot; }}}</span>
+<a name="cl-49"></a><span class="c">&quot; Cursor {{{</span>
+<a name="cl-50"></a><span class="nb">hi</span> Cursor          guifg<span class="p">=</span><span class="mh">#000000</span> guibg<span class="p">=</span>#F35FBC
+<a name="cl-51"></a><span class="nb">hi</span> iCursor         guifg<span class="p">=</span><span class="mh">#000000</span> guibg<span class="p">=</span>#FDFF00
+<a name="cl-52"></a><span class="nb">hi</span> vCursor         guifg<span class="p">=</span><span class="mh">#000000</span> guibg<span class="p">=</span>#AAF412
+<a name="cl-53"></a><span class="c">&quot; }}}</span>
+<a name="cl-54"></a><span class="c">&quot; Block Colors {{{</span>
+<a name="cl-55"></a><span class="nb">hi</span> BlockColor1 guibg<span class="p">=</span><span class="mh">#2a2a2a</span>
+<a name="cl-56"></a><span class="nb">hi</span> BlockColor2 guibg<span class="p">=</span><span class="mh">#333333</span>
+<a name="cl-57"></a><span class="nb">hi</span> BlockColor3 guibg<span class="p">=</span><span class="mh">#3b3b3b</span>
+<a name="cl-58"></a><span class="nb">hi</span> BlockColor4 guibg<span class="p">=</span><span class="mh">#424242</span>
+<a name="cl-59"></a><span class="c">&quot; }}}</span>
+<a name="cl-60"></a>
+<a name="cl-61"></a><span class="nb">hi</span> GreenBar <span class="nb">term</span><span class="p">=</span>reverse ctermfg<span class="p">=</span>white ctermbg<span class="p">=</span>green guifg<span class="p">=</span>black guibg<span class="p">=</span><span class="mh">#9edf1c</span>
+<a name="cl-62"></a><span class="nb">hi</span> RedBar   <span class="nb">term</span><span class="p">=</span>reverse ctermfg<span class="p">=</span>white ctermbg<span class="p">=</span><span class="k">red</span> guifg<span class="p">=</span>white guibg<span class="p">=</span>#C50048
+<a name="cl-63"></a>
+<a name="cl-64"></a><span class="nb">hi</span> EasyMotionTarget guifg<span class="p">=</span>#E4E500 guibg<span class="p">=</span><span class="nb">bg</span> gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-65"></a><span class="nb">hi</span> EasyMotionShade  guifg<span class="p">=</span><span class="mh">#444444</span> guibg<span class="p">=</span><span class="nb">bg</span> gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-66"></a><span class="nb">hi</span> Directory       guifg<span class="p">=</span>#A6E22E               gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-67"></a><span class="nb">hi</span> Error           guifg<span class="p">=</span><span class="mh">#960050</span> guibg<span class="p">=</span>#<span class="m">1</span>E<span class="m">0010</span>
+<a name="cl-68"></a><span class="nb">hi</span> ErrorMsg        guifg<span class="p">=</span>#F92672 guibg<span class="p">=</span><span class="mh">#232526</span> gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-69"></a><span class="nb">hi</span> Exception       guifg<span class="p">=</span>#A6E22E               gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-70"></a><span class="nb">hi</span> Ignore          guifg<span class="p">=</span><span class="mh">#808080</span> guibg<span class="p">=</span><span class="nb">bg</span>
+<a name="cl-71"></a>
+<a name="cl-72"></a><span class="nb">hi</span> Keyword         guifg<span class="p">=</span>#F92672               gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-73"></a><span class="nb">hi</span> Label           guifg<span class="p">=</span>#E6DB74               gui<span class="p">=</span>none
+<a name="cl-74"></a><span class="nb">hi</span> Macro           guifg<span class="p">=</span>#C4BE89               gui<span class="p">=</span><span class="nb">italic</span>
+<a name="cl-75"></a><span class="nb">hi</span> SpecialKey      guifg<span class="p">=</span>#<span class="m">66</span>D<span class="m">9</span>EF               gui<span class="p">=</span><span class="nb">italic</span>
+<a name="cl-76"></a>
+<a name="cl-77"></a><span class="nb">hi</span> InterestingWord1 guifg<span class="p">=</span><span class="mh">#000000</span> guibg<span class="p">=</span>#FFA700
+<a name="cl-78"></a><span class="nb">hi</span> InterestingWord2 guifg<span class="p">=</span><span class="mh">#000000</span> guibg<span class="p">=</span>#<span class="m">53</span>FF<span class="m">00</span>
+<a name="cl-79"></a><span class="nb">hi</span> InterestingWord3 guifg<span class="p">=</span><span class="mh">#000000</span> guibg<span class="p">=</span>#FF74F8
+<a name="cl-80"></a>
+<a name="cl-81"></a><span class="nb">hi</span> MatchParen      guifg<span class="p">=</span>#E4E400 guibg<span class="p">=</span><span class="mh">#434748</span> gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-82"></a><span class="nb">hi</span> ModeMsg         guifg<span class="p">=</span>#E6DB74
+<a name="cl-83"></a><span class="nb">hi</span> MoreMsg         guifg<span class="p">=</span>#E6DB74
+<a name="cl-84"></a><span class="nb">hi</span> Operator        guifg<span class="p">=</span>#F92672
+<a name="cl-85"></a>
+<a name="cl-86"></a><span class="c">&quot; Completion Menu {{{</span>
+<a name="cl-87"></a><span class="nb">hi</span> Pmenu           guifg<span class="p">=</span><span class="mh">#cccccc</span> guibg<span class="p">=</span><span class="mh">#232728</span>
+<a name="cl-88"></a><span class="nb">hi</span> PmenuSel        guifg<span class="p">=</span><span class="mh">#000000</span> guibg<span class="p">=</span>#AAF412
+<a name="cl-89"></a><span class="nb">hi</span> PmenuSbar                     guibg<span class="p">=</span><span class="mh">#131414</span>
+<a name="cl-90"></a><span class="nb">hi</span> PmenuThumb      guifg<span class="p">=</span><span class="mh">#777777</span>
+<a name="cl-91"></a><span class="c">&quot; }}}</span>
+<a name="cl-92"></a>
+<a name="cl-93"></a><span class="nb">hi</span> PreCondit       guifg<span class="p">=</span>#A6E22E               gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-94"></a><span class="nb">hi</span> PreProc         guifg<span class="p">=</span>#A6E22E
+<a name="cl-95"></a><span class="nb">hi</span> Question        guifg<span class="p">=</span>#<span class="m">66</span>D<span class="m">9</span>EF
+<a name="cl-96"></a><span class="nb">hi</span> Repeat          guifg<span class="p">=</span>#F92672               gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-97"></a>
+<a name="cl-98"></a><span class="c">&quot; marks column</span>
+<a name="cl-99"></a><span class="nb">hi</span> IndentGuides                  guibg<span class="p">=</span><span class="mh">#373737</span>
+<a name="cl-100"></a><span class="nb">hi</span> SignColumn      guifg<span class="p">=</span>#A6E22E guibg<span class="p">=</span><span class="mh">#151617</span>
+<a name="cl-101"></a><span class="nb">hi</span> SpecialChar     guifg<span class="p">=</span>#F92672               gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-102"></a><span class="nb">hi</span> SpecialComment  guifg<span class="p">=</span><span class="mh">#465457</span>               gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-103"></a><span class="nb">hi</span> Special         guifg<span class="p">=</span>#<span class="m">66</span>D<span class="m">9</span>EF guibg<span class="p">=</span><span class="nb">bg</span>      gui<span class="p">=</span><span class="nb">italic</span>
+<a name="cl-104"></a><span class="nb">hi</span> SpecialKey      guifg<span class="p">=</span>#<span class="m">888</span>A<span class="m">85</span>               gui<span class="p">=</span><span class="nb">italic</span>
+<a name="cl-105"></a><span class="nb">hi</span> Statement       guifg<span class="p">=</span>#F92672               gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-106"></a><span class="nb">hi</span> StatusLine      guifg<span class="p">=</span>#CD5907 guibg<span class="p">=</span>fg
+<a name="cl-107"></a><span class="nb">hi</span> StatusLineNC    guifg<span class="p">=</span><span class="mh">#808080</span> guibg<span class="p">=</span><span class="mh">#080808</span>
+<a name="cl-108"></a><span class="nb">hi</span> StorageClass    guifg<span class="p">=</span>#FD971F               gui<span class="p">=</span><span class="nb">italic</span>
+<a name="cl-109"></a><span class="nb">hi</span> Structure       guifg<span class="p">=</span>#<span class="m">66</span>D<span class="m">9</span>EF
+<a name="cl-110"></a><span class="nb">hi</span> Tag             guifg<span class="p">=</span>#F92672               gui<span class="p">=</span><span class="nb">italic</span>
+<a name="cl-111"></a><span class="nb">hi</span> Title           guifg<span class="p">=</span><span class="mh">#ef5939</span>
+<a name="cl-112"></a><span class="nb">hi</span> Todo            guifg<span class="p">=</span>#FFFFFF guibg<span class="p">=</span><span class="nb">bg</span>      gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-113"></a>
+<a name="cl-114"></a><span class="nb">hi</span> Typedef         guifg<span class="p">=</span>#<span class="m">66</span>D<span class="m">9</span>EF
+<a name="cl-115"></a><span class="nb">hi</span> Type            guifg<span class="p">=</span>#<span class="m">66</span>D<span class="m">9</span>EF               gui<span class="p">=</span>none
+<a name="cl-116"></a><span class="nb">hi</span> Underlined      guifg<span class="p">=</span><span class="mh">#808080</span>               gui<span class="p">=</span><span class="nb">underline</span>
+<a name="cl-117"></a>
+<a name="cl-118"></a><span class="nb">hi</span> WarningMsg      guifg<span class="p">=</span>#FFFFFF guibg<span class="p">=</span><span class="mh">#333333</span> gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-119"></a><span class="nb">hi</span> WildMenu        guifg<span class="p">=</span>#<span class="m">66</span>D<span class="m">9</span>EF guibg<span class="p">=</span><span class="mh">#000000</span>
+<a name="cl-120"></a>
+<a name="cl-121"></a><span class="nb">hi</span> MyTagListFileName guifg<span class="p">=</span>#F92672 guibg<span class="p">=</span><span class="nb">bg</span> gui<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-122"></a>
+<a name="cl-123"></a><span class="c">&quot; Spelling {{{</span>
+<a name="cl-124"></a><span class="k">if</span> has<span class="p">(</span><span class="s2">&quot;spell&quot;</span><span class="p">)</span>
+<a name="cl-125"></a>    <span class="nb">hi</span> SpellBad    guisp<span class="p">=</span>#FF0000 gui<span class="p">=</span>undercurl
+<a name="cl-126"></a>    <span class="nb">hi</span> SpellCap    guisp<span class="p">=</span>#<span class="m">7070</span>F<span class="m">0</span> gui<span class="p">=</span>undercurl
+<a name="cl-127"></a>    <span class="nb">hi</span> SpellLocal  guisp<span class="p">=</span>#<span class="m">70</span>F<span class="m">0</span>F<span class="m">0</span> gui<span class="p">=</span>undercurl
+<a name="cl-128"></a>    <span class="nb">hi</span> SpellRare   guisp<span class="p">=</span>#FFFFFF gui<span class="p">=</span>undercurl
+<a name="cl-129"></a><span class="k">endif</span>
+<a name="cl-130"></a><span class="c">&quot; }}}</span>
+<a name="cl-131"></a><span class="c">&quot; Visual Mode {{{</span>
+<a name="cl-132"></a><span class="nb">hi</span> VisualNOS  guibg<span class="p">=</span>#<span class="m">403</span>D<span class="m">3</span>D
+<a name="cl-133"></a><span class="nb">hi</span> Visual     guibg<span class="p">=</span>#<span class="m">403</span>D<span class="m">3</span>D
+<a name="cl-134"></a><span class="c">&quot; }}}</span>
+<a name="cl-135"></a><span class="c">&quot; Invisible character colors {{{</span>
+<a name="cl-136"></a><span class="nb">highlight</span> NonText    guifg<span class="p">=</span><span class="mh">#444444</span> guibg<span class="p">=</span><span class="nb">bg</span>
+<a name="cl-137"></a><span class="nb">highlight</span> SpecialKey guifg<span class="p">=</span><span class="mh">#444444</span> guibg<span class="p">=</span><span class="nb">bg</span>
+<a name="cl-138"></a><span class="c">&quot; }}}</span>
+<a name="cl-139"></a>
+<a name="cl-140"></a><span class="c">&quot; Support for 256-color terminals {{{</span>
+<a name="cl-141"></a><span class="k">if</span> &amp;<span class="nb">t_Co</span> <span class="p">&gt;</span> <span class="m">255</span>
+<a name="cl-142"></a>   <span class="nb">hi</span> Boolean         ctermfg<span class="p">=</span><span class="m">135</span>
+<a name="cl-143"></a>   <span class="nb">hi</span> Character       ctermfg<span class="p">=</span><span class="m">144</span>
+<a name="cl-144"></a>   <span class="nb">hi</span> Number          ctermfg<span class="p">=</span><span class="m">135</span>
+<a name="cl-145"></a>   <span class="nb">hi</span> String          ctermfg<span class="p">=</span><span class="m">144</span>
+<a name="cl-146"></a>   <span class="nb">hi</span> Conditional     ctermfg<span class="p">=</span><span class="m">161</span>               cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-147"></a>   <span class="nb">hi</span> Constant        ctermfg<span class="p">=</span><span class="m">135</span>               cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-148"></a>   <span class="nb">hi</span> Cursor          ctermfg<span class="p">=</span><span class="m">16</span>  ctermbg<span class="p">=</span><span class="m">253</span>
+<a name="cl-149"></a>   <span class="nb">hi</span> Debug           ctermfg<span class="p">=</span><span class="m">225</span>               cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-150"></a>   <span class="nb">hi</span> Define          ctermfg<span class="p">=</span><span class="m">81</span>
+<a name="cl-151"></a>   <span class="nb">hi</span> Delimiter       ctermfg<span class="p">=</span><span class="m">241</span>
+<a name="cl-152"></a>
+<a name="cl-153"></a>   <span class="nb">hi</span> EasyMotionTarget ctermfg<span class="p">=</span><span class="m">11</span>
+<a name="cl-154"></a>   <span class="nb">hi</span> EasyMotionShade  ctermfg<span class="p">=</span><span class="m">8</span>
+<a name="cl-155"></a>
+<a name="cl-156"></a>   <span class="nb">hi</span> DiffAdd                     ctermbg<span class="p">=</span><span class="m">24</span>
+<a name="cl-157"></a>   <span class="nb">hi</span> DiffChange      ctermfg<span class="p">=</span><span class="m">181</span> ctermbg<span class="p">=</span><span class="m">239</span>
+<a name="cl-158"></a>   <span class="nb">hi</span> DiffDelete      ctermfg<span class="p">=</span><span class="m">162</span> ctermbg<span class="p">=</span><span class="m">53</span>
+<a name="cl-159"></a>   <span class="nb">hi</span> DiffText                    ctermbg<span class="p">=</span><span class="m">102</span> cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-160"></a>
+<a name="cl-161"></a>   <span class="nb">hi</span> Directory       ctermfg<span class="p">=</span><span class="m">118</span>               cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-162"></a>   <span class="nb">hi</span> Error           ctermfg<span class="p">=</span><span class="m">219</span> ctermbg<span class="p">=</span><span class="m">89</span>
+<a name="cl-163"></a>   <span class="nb">hi</span> ErrorMsg        ctermfg<span class="p">=</span><span class="m">199</span> ctermbg<span class="p">=</span><span class="m">16</span>    cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-164"></a>   <span class="nb">hi</span> Exception       ctermfg<span class="p">=</span><span class="m">118</span>               cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-165"></a>   <span class="nb">hi</span> Float           ctermfg<span class="p">=</span><span class="m">135</span>
+<a name="cl-166"></a>   <span class="nb">hi</span> FoldColumn      ctermfg<span class="p">=</span><span class="m">67</span>  ctermbg<span class="p">=</span><span class="m">233</span>
+<a name="cl-167"></a>   <span class="nb">hi</span> Folded          ctermfg<span class="p">=</span><span class="m">67</span>  ctermbg<span class="p">=</span><span class="m">233</span>
+<a name="cl-168"></a>   <span class="nb">hi</span> Function        ctermfg<span class="p">=</span><span class="m">118</span>
+<a name="cl-169"></a>   <span class="nb">hi</span> Identifier      ctermfg<span class="p">=</span><span class="m">208</span>
+<a name="cl-170"></a>   <span class="nb">hi</span> Ignore          ctermfg<span class="p">=</span><span class="m">244</span> ctermbg<span class="p">=</span><span class="m">232</span>
+<a name="cl-171"></a>   <span class="nb">hi</span> IncSearch       ctermfg<span class="p">=</span><span class="m">193</span> ctermbg<span class="p">=</span><span class="m">16</span>
+<a name="cl-172"></a>
+<a name="cl-173"></a>   <span class="nb">hi</span> Keyword         ctermfg<span class="p">=</span><span class="m">161</span>               cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-174"></a>   <span class="nb">hi</span> Label           ctermfg<span class="p">=</span><span class="m">229</span>               cterm<span class="p">=</span>none
+<a name="cl-175"></a>   <span class="nb">hi</span> Macro           ctermfg<span class="p">=</span><span class="m">193</span>
+<a name="cl-176"></a>   <span class="nb">hi</span> SpecialKey      ctermfg<span class="p">=</span><span class="m">81</span>
+<a name="cl-177"></a>   <span class="nb">hi</span> MailHeaderEmail ctermfg<span class="p">=</span><span class="m">3</span>  ctermbg<span class="p">=</span><span class="m">233</span>
+<a name="cl-178"></a>   <span class="nb">hi</span> MailEmail       ctermfg<span class="p">=</span><span class="m">3</span>  ctermbg<span class="p">=</span><span class="m">233</span>
+<a name="cl-179"></a>
+<a name="cl-180"></a>   <span class="nb">hi</span> MatchParen      ctermfg<span class="p">=</span><span class="m">16</span>  ctermbg<span class="p">=</span><span class="m">208</span> cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-181"></a>   <span class="nb">hi</span> ModeMsg         ctermfg<span class="p">=</span><span class="m">229</span>
+<a name="cl-182"></a>   <span class="nb">hi</span> MoreMsg         ctermfg<span class="p">=</span><span class="m">229</span>
+<a name="cl-183"></a>   <span class="nb">hi</span> Operator        ctermfg<span class="p">=</span><span class="m">161</span>
+<a name="cl-184"></a>
+<a name="cl-185"></a><span class="c">   &quot; complete menu</span>
+<a name="cl-186"></a>   <span class="nb">hi</span> Pmenu           ctermfg<span class="p">=</span><span class="m">81</span>  ctermbg<span class="p">=</span><span class="m">16</span>
+<a name="cl-187"></a>   <span class="nb">hi</span> PmenuSel                    ctermbg<span class="p">=</span><span class="m">244</span>
+<a name="cl-188"></a>   <span class="nb">hi</span> PmenuSbar                   ctermbg<span class="p">=</span><span class="m">232</span>
+<a name="cl-189"></a>   <span class="nb">hi</span> PmenuThumb      ctermfg<span class="p">=</span><span class="m">81</span>
+<a name="cl-190"></a>
+<a name="cl-191"></a>   <span class="nb">hi</span> PreCondit       ctermfg<span class="p">=</span><span class="m">118</span>               cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-192"></a>   <span class="nb">hi</span> PreProc         ctermfg<span class="p">=</span><span class="m">118</span>
+<a name="cl-193"></a>   <span class="nb">hi</span> Question        ctermfg<span class="p">=</span><span class="m">81</span>
+<a name="cl-194"></a>   <span class="nb">hi</span> Repeat          ctermfg<span class="p">=</span><span class="m">161</span>               cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-195"></a>   <span class="nb">hi</span> Search          ctermfg<span class="p">=</span><span class="m">253</span> ctermbg<span class="p">=</span><span class="m">66</span>
+<a name="cl-196"></a>
+<a name="cl-197"></a><span class="c">   &quot; marks column</span>
+<a name="cl-198"></a>   <span class="nb">hi</span> SignColumn      ctermfg<span class="p">=</span><span class="m">118</span> ctermbg<span class="p">=</span><span class="m">235</span>
+<a name="cl-199"></a>   <span class="nb">hi</span> SpecialChar     ctermfg<span class="p">=</span><span class="m">161</span>               cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-200"></a>   <span class="nb">hi</span> SpecialComment  ctermfg<span class="p">=</span><span class="m">245</span>               cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-201"></a>   <span class="nb">hi</span> Special         ctermfg<span class="p">=</span><span class="m">81</span>  ctermbg<span class="p">=</span><span class="m">232</span>
+<a name="cl-202"></a>   <span class="nb">hi</span> SpecialKey      ctermfg<span class="p">=</span><span class="m">245</span>
+<a name="cl-203"></a>
+<a name="cl-204"></a>   <span class="nb">hi</span> Statement       ctermfg<span class="p">=</span><span class="m">161</span>               cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-205"></a>   <span class="nb">hi</span> StatusLine      ctermfg<span class="p">=</span><span class="m">130</span> ctermbg<span class="p">=</span><span class="m">15</span>
+<a name="cl-206"></a>   <span class="nb">hi</span> StatusLineNC    ctermfg<span class="p">=</span><span class="m">242</span> ctermbg<span class="p">=</span><span class="m">15</span>
+<a name="cl-207"></a>   <span class="nb">hi</span> StorageClass    ctermfg<span class="p">=</span><span class="m">208</span>
+<a name="cl-208"></a>   <span class="nb">hi</span> Structure       ctermfg<span class="p">=</span><span class="m">81</span>
+<a name="cl-209"></a>   <span class="nb">hi</span> Tag             ctermfg<span class="p">=</span><span class="m">161</span>
+<a name="cl-210"></a>   <span class="nb">hi</span> Title           ctermfg<span class="p">=</span><span class="m">166</span>
+<a name="cl-211"></a>   <span class="nb">hi</span> Todo            ctermfg<span class="p">=</span><span class="m">231</span> ctermbg<span class="p">=</span><span class="m">232</span>   cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-212"></a>
+<a name="cl-213"></a>   <span class="nb">hi</span> Typedef         ctermfg<span class="p">=</span><span class="m">81</span>
+<a name="cl-214"></a>   <span class="nb">hi</span> Type            ctermfg<span class="p">=</span><span class="m">81</span>                cterm<span class="p">=</span>none
+<a name="cl-215"></a>   <span class="nb">hi</span> Underlined      ctermfg<span class="p">=</span><span class="m">244</span>               cterm<span class="p">=</span><span class="nb">underline</span>
+<a name="cl-216"></a>
+<a name="cl-217"></a>   <span class="nb">hi</span> VertSplit       ctermfg<span class="p">=</span><span class="m">244</span> ctermbg<span class="p">=</span><span class="m">232</span>   cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-218"></a>   <span class="nb">hi</span> VisualNOS                   ctermbg<span class="p">=</span><span class="m">238</span>
+<a name="cl-219"></a>   <span class="nb">hi</span> Visual                      ctermbg<span class="p">=</span><span class="m">235</span>
+<a name="cl-220"></a>   <span class="nb">hi</span> WarningMsg      ctermfg<span class="p">=</span><span class="m">231</span> ctermbg<span class="p">=</span><span class="m">238</span>   cterm<span class="p">=</span><span class="nb">bold</span>
+<a name="cl-221"></a>   <span class="nb">hi</span> WildMenu        ctermfg<span class="p">=</span><span class="m">81</span>  ctermbg<span class="p">=</span><span class="m">16</span>
+<a name="cl-222"></a>
+<a name="cl-223"></a>   <span class="nb">hi</span> Normal          ctermfg<span class="p">=</span><span class="m">252</span> ctermbg<span class="p">=</span><span class="m">233</span>
+<a name="cl-224"></a>   <span class="nb">hi</span> Comment         ctermfg<span class="p">=</span><span class="m">59</span>
+<a name="cl-225"></a>   <span class="nb">hi</span> CursorLine                  ctermbg<span class="p">=</span><span class="m">234</span>   cterm<span class="p">=</span>none
+<a name="cl-226"></a>   <span class="nb">hi</span> CursorColumn                ctermbg<span class="p">=</span><span class="m">234</span>
+<a name="cl-227"></a>   <span class="nb">hi</span> ColorColumn                 ctermbg<span class="p">=</span><span class="m">234</span>
+<a name="cl-228"></a>   <span class="nb">hi</span> LineNr          ctermfg<span class="p">=</span><span class="m">250</span> ctermbg<span class="p">=</span><span class="m">233</span>
+<a name="cl-229"></a>   <span class="nb">hi</span> NonText         ctermfg<span class="p">=</span><span class="m">240</span> ctermbg<span class="p">=</span><span class="m">233</span>
+<a name="cl-230"></a><span class="k">end</span> <span class="c">&quot; }}}</span>
+</pre></div>
+</td></tr></table>
+    </div>
+  
+  </div>
+  
+
+
+  <div id="mask"><div></div></div>
+
+  </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div id="footer">
+    <ul id="footer-nav">
+      <li>Copyright © 2011 <a href="http://atlassian.com">Atlassian</a></li>
+      <li><a href="http://www.atlassian.com/hosted/terms.jsp">Terms of Service</a></li>
+      <li><a href="http://www.atlassian.com/about/privacy.jsp">Privacy</a></li>
+      <li><a href="//bitbucket.org/site/master/issues/new">Report a Bug to Bitbucket</a></li>
+      <li><a href="http://confluence.atlassian.com/x/IYBGDQ">API</a></li>
+      <li><a href="http://status.bitbucket.org/">Server Status</a></li>
+    </ul>
+    <ul id="social-nav">
+      <li class="blog"><a href="http://blog.bitbucket.org">Bitbucket Blog</a></li>
+      <li class="twitter"><a href="http://www.twitter.com/bitbucket">Twitter</a></li>
+    </ul>
+    <h5>We run</h5>
+    <ul id="technologies">
+      <li><a href="http://www.djangoproject.com/">Django 1.3.1</a></li>
+      <li><a href="//bitbucket.org/jespern/django-piston/">Piston 0.3dev</a></li>
+      <li><a href="http://git-scm.com/">Git 1.7.6</a></li>
+      <li><a href="http://www.selenic.com/mercurial/">Hg 1.9.2</a></li>
+      <li><a href="http://www.python.org">Python 2.7.2</a></li>
+      <li>947ac2236726 | bitbucket01</li>
+    </ul>
+  </div>
+
+  <script src="https://dwz7u9t8u8usb.cloudfront.net/m/1e5f56e3c501/js/lib/global.js"></script>
+
+
+
+
+
+
+  <script>
+    BB.gaqPush(['_trackPageview']);
+  
+    BB.gaqPush(['atl._trackPageview']);
+
+    
+
+    
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+    }());
+  </script>
+
+</body>
+</html>
