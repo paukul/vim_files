@@ -142,17 +142,17 @@ if &t_Co > 255
   " Popup Menu
   " ----------
   " normal item in popup
-  hi Pmenu                     ctermfg=254 ctermbg=254 cterm=NONE
+  hi Pmenu                     ctermfg=242 ctermbg=234
   " selected item in popup
-  hi PmenuSel                  ctermfg=16 ctermbg=214 cterm=NONE
+  hi PmenuSel                  ctermfg=16 ctermbg=250
   " scrollbar in popup
-  hi PMenuSbar                 ctermbg=237 cterm=NONE
+  hi PMenuSbar                 ctermbg=237
   " thumb of the scrollbar in the popup
-  hi PMenuThumb                ctermbg=239 cterm=NONE
+  hi PMenuThumb                ctermbg=239
 
 
   "rubyCommen TODO: t
-  hi Comment                   ctermfg=237 cterm=none
+  hi Comment                   ctermfg=237
   hi Todo                      ctermfg=161 ctermbg=NONE
 
   "rubyPseudoVariable
