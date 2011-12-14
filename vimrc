@@ -74,6 +74,7 @@ nnoremap <leader><leader> <c-^>
 " Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
+set timeoutlen=250  " Time to wait after ESC
 
 if has("gui_running")
   " Automatically resize splits when resizing MacVim window
