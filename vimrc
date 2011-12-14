@@ -67,6 +67,8 @@ au BufNewFile,BufRead *.json set ft=javascript
 " Mappings
 " Opens an edit command with the path of the currently edited file filled in
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+" Switch between current and previous buffer
+nnoremap <leader><leader> <c-^>
 
 " Vim internals
 " Directories for swp files
