@@ -28,3 +28,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/soarized"]
+	path = bundle/soarized
+	url = git://github.com/altercation/vim-colors-solarized.git
