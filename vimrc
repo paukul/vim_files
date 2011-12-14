@@ -11,7 +11,7 @@ set encoding=utf-8 " Encoding to UTF-8
 
 " Whitespace and syntax stuff
 syntax on
-color molokai
+color hardcore
 set nowrap
 set tabstop=2
 set shiftwidth=2
