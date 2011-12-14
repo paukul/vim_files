@@ -31,3 +31,6 @@
 [submodule "bundle/soarized"]
 	path = bundle/soarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/vim-ruby"]
+	path = bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
