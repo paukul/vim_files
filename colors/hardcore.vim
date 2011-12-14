@@ -4,25 +4,25 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-let g:colors_name = "railscasts"
+let g:colors_name = "hardcore"
 
 " Colors
 " Foreground   #a0a0a0
 " Background   #161616
 " Highlight bg #505354
-" Light Blue   #66d9ef
-" Dark Green   #a1d052
-" Red          #ff3c83
-" Light Green  #afe459
-" Dark Orange  #ffa542
-" Purple       #b28bf8
-" Grey         #708488
-" Light Grey   #d6d5d1
-" Pink         #ff669d
+" Light Blue   #66d9ef 67
+" Dark Green   #a1d052 71
+" Red          #ff3c83 160
+" Light Green  #afe459 118
+" Dark Orange  #ffa542 130
+" Purple       #b28bf8 91
+" Grey         #708488 237
+" Light Grey   #d6d5d1 214
+" Pink         #ff669d 161
 "
 " Brown        #f2882d
-" Dark Blue    #6D9CBE
-" Tan          #FFC66D
+" hot pink     #6D9CBE 161
+" Tan          #FFC66D 180
 
 hi Normal                    guifg=#f6f3e8 guibg=#161616
 hi Cursor                    guibg=#d6d5d1
@@ -60,7 +60,6 @@ hi Todo                      guifg=#ff669d guibg=NONE gui=italic
 "rubyPseudoVariable
 "nil, self, symbols, etc
 hi Constant                  guifg=#6D9CBE
-
 
 "rubyClass, rubyModule, rubyDefine
 "def, end, include, etc
@@ -121,3 +120,102 @@ hi link htmlEndTag           xmlEndTag
 hi xmlTag                    guifg=#E8BF6A
 hi xmlTagName                guifg=#E8BF6A
 hi xmlEndTag                 guifg=#E8BF6A
+
+if &t_Co > 255
+  hi Normal                    ctermfg=254 ctermbg=233
+  hi Cursor                    ctermbg=255
+  hi CursorLine                ctermbg=234
+  hi LineNr                    ctermfg=242 ctermbg=234
+  hi Search                    ctermbg=67
+  hi Visual                    ctermbg=67
+
+  " Folds
+  " -----
+  " line used for closed folds
+  hi Folded                    ctermfg=254 ctermbg=214 cterm=NONE
+
+  " Misc
+  " ----
+  " directory names and other special names in listings
+  hi Directory                 ctermfg=161 cterm=NONE
+
+  " Popup Menu
+  " ----------
+  " normal item in popup
+  hi Pmenu                     ctermfg=254 ctermbg=254 cterm=NONE
+  " selected item in popup
+  hi PmenuSel                  ctermfg=16 ctermbg=214 cterm=NONE
+  " scrollbar in popup
+  hi PMenuSbar                 ctermbg=237 cterm=NONE
+  " thumb of the scrollbar in the popup
+  hi PMenuThumb                ctermbg=239 cterm=NONE
+
+
+  "rubyCommen TODO: t
+  hi Comment                   ctermfg=237 cterm=none
+  hi Todo                      ctermfg=161 ctermbg=NONE
+
+  "rubyPseudoVariable
+  "nil, self, symbols, etc
+  hi Constant                  ctermfg=67
+
+  "rubyClass, rubyModule, rubyDefine
+  "def, end, include, etc
+  hi Define                    ctermfg=130
+
+  "rubyInterpolation
+  hi Delimiter                 ctermfg=71
+
+  "rubyError, rubyInvalidVariable
+  hi Error                     ctermfg=255 ctermbg=160
+
+  "rubyFunction
+  hi Function                  ctermfg=180 cterm=NONE
+
+  "rubyIdentifier
+  "@var, @@var, $var, etc
+  hi Identifier                ctermfg=69 cterm=NONE
+
+  "rubyInclude
+  "include, autoload, extend, load, require
+  hi Include                   ctermfg=130 cterm=NONE
+
+  "rubyKeyword, rubyKeywordAsMethod
+  "alias, undef, super, yield, callcc, caller, lambda, proc
+  hi Keyword                   ctermfg=130
+
+  " same as define
+  hi Macro                     ctermfg=130 cterm=NONE
+
+  "rubyInteger
+  hi Number                    ctermfg=30
+
+  " #if, #else, #endif
+  hi PreCondit                 ctermfg=130 cterm=NONE
+
+  " generic preprocessor
+  hi PreProc                   ctermfg=209 cterm=NONE
+
+  "rubyControl, rubyAccess, rubyEval
+  "case, begin, do, for, if unless, while, until else, etc.
+  hi Statement                 ctermfg=130 cterm=NONE
+
+  "rubyString
+  hi String                    ctermfg=118
+
+  hi Title                     ctermfg=16
+
+  "rubyConstant
+  hi Type                      ctermfg=161 cterm=NONE
+
+  hi DiffAdd                   ctermfg=252 ctermbg=71
+  hi DiffDelete                ctermfg=252 ctermbg=204
+
+  hi link htmlTag              xmlTag
+  hi link htmlTagName          xmlTagName
+  hi link htmlEndTag           xmlEndTag
+
+  hi xmlTag                    ctermfg=180
+  hi xmlTagName                ctermfg=180
+  hi xmlEndTag                 ctermfg=180
+end
