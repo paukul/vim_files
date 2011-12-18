@@ -59,6 +59,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+noremap <S-J> <C-W>j<C-W>_
+noremap <S-K> <C-W>k<C-W>_
+noremap <S-L> <C-W>l<C-W>_
+noremap <S-H> <C-W>h<C-W>_
 
 " Filetypes
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
@@ -66,7 +70,8 @@ au BufNewFile,BufRead *.json set ft=javascript
 
 " Mappings
 " Opens an edit command with the path of the currently edited file filled in
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+cnoremap %% <C-R>=expand("%:p:h")."/"<CR>
+map <leader>e :e %%
 " Switch between current and previous buffer
 nnoremap <leader><leader> <c-^>
 
@@ -91,3 +96,5 @@ let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
+" Command-T
+let g:CommandTMaxHeight=20
