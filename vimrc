@@ -5,11 +5,7 @@ call pathogen#infect()
 set nocompatible
 set modelines=0
 
-if has("relativenumber")
-  set relativenumber " not sure if I like
-else
-  set number " line numbers
-endif
+set number " line numbers
 set ruler
 set encoding=utf-8 " Encoding to UTF-8
 
