@@ -5,4 +5,5 @@
 bundle/command-t/ruby/command-t/ext.bundle
 bundle/command-t/ruby/command-t/mkmf.log
 bundle/command-t/ruby/command-t/Makefile
+bundle/command-t/ruby/command-t/*.so
 
