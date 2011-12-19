@@ -5,7 +5,11 @@ call pathogen#infect()
 set nocompatible
 set modelines=0
 
-set number " line numbers
+if has("relativenumber")
+  set relativenumber " not sure if I like
+else
+  set number " line numbers
+endif
 set ruler
 set encoding=utf-8 " Encoding to UTF-8
 
@@ -24,7 +28,6 @@ set list listchars=tab:\ \ ,trail:·
 " misc
 set visualbell
 set ttyfast
-set relativenumber " not sure if I like
 filetype plugin indent on " indent depends on filetype
 
 set hidden " Allow unsafed buffers
