@@ -97,3 +97,6 @@ let g:syntastic_quiet_warnings=1
 let g:SuperTabDefaultCompletionType = "context"
 " Command-T
 let g:CommandTMaxHeight=20
+
+au WinLeave * set nocursorline
+au WinEnter * set cursorline

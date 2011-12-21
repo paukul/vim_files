@@ -28,7 +28,7 @@ let g:colors_name = "hardcore"
 
 hi Normal                    guifg=#f6f3e8 guibg=#161616
 hi Cursor                    guibg=#d6d5d1
-hi CursorLine                guibg=#505354
+hi CursorLine                guibg=#505354 gui=NONE
 hi LineNr                    guifg=#888888 guibg=#161616
 hi Search                    guibg=#dfdb74
 hi Visual                    guibg=#363983
@@ -126,7 +126,7 @@ hi xmlEndTag                 guifg=#E8BF6A
 if &t_Co > 255
   hi Normal                    ctermfg=254 ctermbg=233
   hi Cursor                    ctermbg=255
-  hi CursorLine                ctermbg=234
+  hi CursorLine                ctermbg=234 cterm=NONE
   hi LineNr                    ctermfg=242 ctermbg=234
   hi Search                    ctermbg=67
   hi Visual                    ctermbg=67
