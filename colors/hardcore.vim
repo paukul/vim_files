@@ -1,4 +1,6 @@
-" Vim color scheme
+" Paukuls (paukul@gmail.com) personal Vim color scheme based on
+" https://github.com/hardcore/iTerm-colors
+" and the railscasts color theme.
 set background=dark
 hi clear
 if exists("syntax_on")
