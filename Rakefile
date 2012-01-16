@@ -12,6 +12,9 @@ task :default do
     Dir.chdir(bundle) do
       plugin = File.basename(bundle)
       if File.exist?(".git")
+        unless File.read(".git/HEAD") =~ /ref/
+          `git checkout master`
+        end
         STDOUT.print "Updating #{plugin} "
         `git pull`
         puts "✓"
