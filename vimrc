@@ -21,6 +21,8 @@ set backspace=indent,eol,start
 set autoindent
 set list listchars=tab:\ \ ,trail:·
 
+filetype plugin on
+
 " misc
 set visualbell
 set ttyfast
@@ -103,3 +105,4 @@ map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
 
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
+
