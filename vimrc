@@ -29,7 +29,7 @@ set ttyfast
 filetype plugin indent on " indent depends on filetype
 
 set hidden " Allow unsafed buffers
-set wildignore+=gems/gems/*,doc/*,tmp/*,vendor/gems/*,.git,*.rbc,*.class,.svn,*.o,*.obj
+set wildignore+=gems/gems/*,doc/*,tmp/*,vendor/gems/*,.git,*.rbc,*.class,.svn,*.o,*.obj,public/assets/*
 set wildmenu
 set wildmode=list:longest
 set guifont=Monaco:h12
@@ -65,9 +65,22 @@ noremap <S-K> <C-W>k<C-W>_
 noremap <S-L> <C-W>l<C-W>_
 noremap <S-H> <C-W>h<C-W>_
 
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    let isMac = 1
+  else
+    let isMac = 0
+  endif
+endif
+
 " Filetypes
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 au BufNewFile,BufRead *.json set ft=javascript
+
+if isMac
+  set clipboard=unnamed
+endif
 
 " Mappings
 " Opens an edit command with the path of the currently edited file filled in
