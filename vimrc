@@ -1,3 +1,13 @@
+" are we on a mac?
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    let isMac = 1
+  else
+    let isMac = 0
+  endif
+endif
+
 " Pathogene
 call pathogen#infect()
 
@@ -65,21 +75,13 @@ noremap <S-K> <C-W>k<C-W>_
 noremap <S-L> <C-W>l<C-W>_
 noremap <S-H> <C-W>h<C-W>_
 
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    let isMac = 1
-  else
-    let isMac = 0
-  endif
-endif
-
 " Filetypes
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 au BufNewFile,BufRead *.json set ft=javascript
 
 if isMac
-  set clipboard=unnamed
+  " copy stuff to the macs clipboard
+  vmap <leader>c "+y
 endif
 
 " Mappings
