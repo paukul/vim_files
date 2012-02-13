@@ -114,6 +114,8 @@ let g:syntastic_quiet_warnings=1
 let g:SuperTabDefaultCompletionType = "context"
 " ctrlp
 let g:ctrlp_map = '<leader>f'
+" YankRing
+nnoremap <silent> <leader>z :YRShow<CR>
 
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
