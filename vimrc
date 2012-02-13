@@ -111,7 +111,7 @@ let macvim_hig_shift_movement = 1
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
 " supertab
-let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabDefaultCompletionType = "context"
 " ctrlp
 let g:ctrlp_map = '<leader>f'
 " YankRing
