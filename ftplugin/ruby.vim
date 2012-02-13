@@ -3,8 +3,6 @@ fu! SpinUp()
 endfunction
 
 fu! s:SpinUpTest(testName)
-  echo "W0000"
-  echo "Running focus test: " . a:testName
   execute "!bundle exec spin push " . bufname("%") . ":" . a:testName . " &>/dev/null &" | redraw!
 endfunction
 
