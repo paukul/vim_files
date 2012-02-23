@@ -112,6 +112,11 @@ let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
 " supertab
 " let g:SuperTabDefaultCompletionType = "context"
+" Command-T
+let g:CommandTMaxHeight=20
+map <leader>t :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>f :CommandT<cr>
+map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
 " YankRing
 nnoremap <silent> <leader>z :YRShow<CR>
 
