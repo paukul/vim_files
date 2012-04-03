@@ -36,6 +36,7 @@ filetype plugin on
 " misc
 set visualbell
 set ttyfast
+set lazyredraw " buffer screen redraws instead of updating all the time
 filetype plugin indent on " indent depends on filetype
 
 set hidden " Allow unsafed buffers
