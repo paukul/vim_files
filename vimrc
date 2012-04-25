@@ -51,7 +51,6 @@ set showcmd
 " Search
 set ignorecase " search case insensitive unless...
 set smartcase  " ...search phrase contains a capital letter
-set gdefault
 set incsearch
 set showmatch
 set hlsearch " highlight searches and unhighlight search results with <space>
