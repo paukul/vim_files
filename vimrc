@@ -97,6 +97,8 @@ nnoremap <leader><leader> <c-^>
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 set timeoutlen=250  " Time to wait after ESC
+set nobackup
+set noswapfile
 
 if has("gui_running")
   " Automatically resize splits when resizing MacVim window
