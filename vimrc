@@ -11,6 +11,9 @@ endif
 " Pathogene
 call pathogen#infect()
 
+" Powerline
+let g:Powerline_symbols = 'fancy'
+
 " Get rid of vi compat crap
 set nocompatible
 set modelines=0
@@ -43,7 +46,7 @@ set hidden " Allow unsafed buffers
 set wildignore+=gems/gems/*,doc/*,tmp/*,vendor/gems/*,.git,*.rbc,*.class,.svn,*.o,*.obj,public/assets/*
 set wildmenu
 set wildmode=list:longest
-set guifont=Monaco:h12
+set guifont="Monaco for Powerline":h12
 set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }[%b][0x%B]%=\ %4l,%02c%2V\ %P%*
 set laststatus=2 " always display the status line
 set showcmd
