@@ -57,3 +57,6 @@
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = https://github.com/wincent/Command-T.git
+[submodule "bundle/vim-auto-pairs"]
+	path = bundle/vim-auto-pairs
+	url = https://github.com/vim-scripts/Auto-Pairs.git
