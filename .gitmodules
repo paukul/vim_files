@@ -63,3 +63,6 @@
 [submodule "bundle/rename2"]
 	path = bundle/rename2
 	url = https://github.com/vim-scripts/Rename2.git
+[submodule "bundle/vim-endwise"]
+	path = bundle/vim-endwise
+	url = https://github.com/tpope/vim-endwise.git
