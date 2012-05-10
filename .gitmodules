@@ -74,3 +74,6 @@
 	path = bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
   ignore=dirty
+[submodule "bundle/vim-vroom"]
+	path = bundle/vim-vroom
+	url = git://github.com/skalnik/vim-vroom.git
