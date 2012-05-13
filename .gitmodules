@@ -34,10 +34,6 @@
 	path = bundle/vim-rails
 	url = https://github.com/tpope/vim-rails.git
   ignore=dirty
-[submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-  ignore=dirty
 [submodule "bundle/soarized"]
 	path = bundle/soarized
 	url = git://github.com/altercation/vim-colors-solarized.git
