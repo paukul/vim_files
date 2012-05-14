@@ -8,14 +8,34 @@ if has("unix")
   endif
 endif
 
-" Pathogene
-call pathogen#infect()
+filetype off
+" Get rid of vi compat crap
+set nocompatible
+set rtp+=~/.vim/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-rails.git'
+Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'vim-scripts/YankRing.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'ddollar/nerdcommenter'
+Bundle 'tsaleh/vim-align'
+Bundle 'tpope/vim-repeat'
+Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-rails'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'vim-scripts/Rename2'
+Bundle 'tpope/vim-endwise'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'skalnik/vim-vroom'
+
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
 
-" Get rid of vi compat crap
-set nocompatible
 set modelines=0
 
 set number " line numbers
@@ -34,20 +54,19 @@ set backspace=indent,eol,start
 set autoindent
 set list listchars=tab:\ \ ,trail:·
 
+filetype plugin indent on " indent depends on filetype
 filetype plugin on
 
 " misc
 set visualbell
 set ttyfast
 set lazyredraw " buffer screen redraws instead of updating all the time
-filetype plugin indent on " indent depends on filetype
 
 set hidden " Allow unsafed buffers
 set wildignore+=gems/gems/*,doc/*,tmp/*,vendor/gems/*,.git,*.rbc,*.class,.svn,*.o,*.obj,public/assets/*,*.png,*.log,*.jpg,.bundle
 set wildmenu
 set wildmode=list:longest
-set guifont="Monaco for Powerline":h14
-set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }[%b][0x%B]%=\ %4l,%02c%2V\ %P%*
+set guifont="Monaco for Powerline":h12
 set laststatus=2 " always display the status line
 set showcmd
 
