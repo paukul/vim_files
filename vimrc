@@ -43,10 +43,10 @@ set lazyredraw " buffer screen redraws instead of updating all the time
 filetype plugin indent on " indent depends on filetype
 
 set hidden " Allow unsafed buffers
-set wildignore+=gems/gems/*,doc/*,tmp/*,vendor/gems/*,.git,*.rbc,*.class,.svn,*.o,*.obj,public/assets/*
+set wildignore+=gems/gems/*,doc/*,tmp/*,vendor/gems/*,.git,*.rbc,*.class,.svn,*.o,*.obj,public/assets/*,*.png,*.log,*.jpg,.bundle
 set wildmenu
 set wildmode=list:longest
-set guifont="Monaco for Powerline":h12
+set guifont="Monaco for Powerline":h14
 set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }[%b][0x%B]%=\ %4l,%02c%2V\ %P%*
 set laststatus=2 " always display the status line
 set showcmd
