@@ -33,7 +33,7 @@ Bundle 'vim-scripts/Rename2'
 Bundle 'tpope/vim-endwise'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'skalnik/vim-vroom'
-
+Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-fugitive'
 
 " Powerline
