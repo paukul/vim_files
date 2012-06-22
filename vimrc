@@ -33,6 +33,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'skalnik/vim-vroom'
 
+Bundle 'tpope/vim-fugitive'
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
