@@ -15,6 +15,7 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails.git'
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'vim-scripts/YankRing.vim'
