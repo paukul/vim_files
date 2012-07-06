@@ -146,6 +146,7 @@ let g:CommandTMaxHeight=20
 map <leader>t :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>f :CommandT<cr>
 map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+map <leader>a :CommandT app/assets/javascripts/<cr>
 " YankRing
 nnoremap <silent> <leader>z :YRShow<CR>
 
