@@ -119,7 +119,7 @@ hi link htmlTag              xmlTag
 hi link htmlTagName          xmlTagName
 hi link htmlEndTag           xmlEndTag
 
-hi xmlTag                    guifg=#E8BF6A
+hi xmlTag                    guifg=#E8BF6A ctermfg=234
 hi xmlTagName                guifg=#E8BF6A
 hi xmlEndTag                 guifg=#E8BF6A
 
@@ -213,6 +213,7 @@ if &t_Co > 255
   hi DiffAdd                   ctermfg=252 ctermbg=71
   hi DiffDelete                ctermfg=252 ctermbg=204
 
+  hi htmlH1               guifg=#f6f3e8
   hi link htmlTag              xmlTag
   hi link htmlTagName          xmlTagName
   hi link htmlEndTag           xmlEndTag
