@@ -153,3 +153,12 @@ nnoremap <silent> <leader>z :YRShow<CR>
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
 
+" a little more informative version of the above
+nmap <Leader>sI :call <SID>SynStack()<CR>
+
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
