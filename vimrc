@@ -99,6 +99,8 @@ noremap <S-J> <C-W>j<C-W>_
 noremap <S-K> <C-W>k<C-W>_
 noremap <S-L> <C-W>l<C-W>_
 noremap <S-H> <C-W>h<C-W>_
+" make backtick behave like ' for marks
+nnoremap ` '
 
 " Filetypes
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
