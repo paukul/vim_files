@@ -11,6 +11,7 @@ endif
 filetype off
 " Get rid of vi compat crap
 set nocompatible
+set rtp+=/usr/local/opt/go/misc/vim
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 
@@ -23,7 +24,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'tsaleh/vim-align'
 Bundle 'tpope/vim-repeat'
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 Bundle 'oscarh/vimerl'
 Bundle 'tpope/vim-rails'
 Bundle 'altercation/vim-colors-solarized'
@@ -35,6 +36,14 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'skalnik/vim-vroom'
 Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'jpalardy/vim-slime'
+Bundle 'smerrill/vcl-vim-plugin'
+Bundle 'slim-template/vim-slim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'airblade/vim-gitgutter'
+
+" vim-slime
+let g:slime_target = "tmux"
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
@@ -69,7 +78,7 @@ set hidden " Allow unsafed buffers
 set wildignore+=gems/gems/*,doc/*,tmp/*,vendor/gems/*,.git,*.rbc,*.class,.svn,*.o,*.obj,public/assets/*,*.png,*.log,*.jpg,.bundle
 set wildmenu
 set wildmode=list:longest
-set guifont="Monaco for Powerline":h12
+set guifont="Menlo for Powerline":h22
 set laststatus=2 " always display the status line
 set showcmd
 
@@ -154,7 +163,7 @@ au WinLeave * set nocursorline
 au WinEnter * set cursorline
 
 " a little more informative version of the above
-nmap <Leader>sI :call <SID>SynStack()<CR>
+nmap <Leader>l :call <SID>SynStack()<CR>
 
 function! <SID>SynStack()
   if !exists("*synstack")

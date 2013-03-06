@@ -161,20 +161,28 @@ if &t_Co > 255
 
   "rubyPseudoVariable
   "nil, self, symbols, etc
-  hi Constant                  ctermfg=67
+  hi Constant                  ctermfg=251
+  hi rubyConstant              ctermfg=251
+  hi rubyRailsUserClass        ctermfg=251
 
+  hi rubyInstanceVariable      ctermfg=240
+  hi rubyBlockParameter        ctermfg=240
   "rubyClass, rubyModule, rubyDefine
   "def, end, include, etc
-  hi Define                    ctermfg=130
+  hi Define                    ctermfg=255
 
   "rubyInterpolation
-  hi Delimiter                 ctermfg=71
+  hi Delimiter                 ctermfg=67
 
   "rubyError, rubyInvalidVariable
   hi Error                     ctermfg=255 ctermbg=160
 
   "rubyFunction
-  hi Function                  ctermfg=180 cterm=NONE
+  hi Function                  ctermfg=243
+  hi rubyAttribute             ctermfg=243
+  "rubyKeyword, rubyKeywordAsMethod
+  "alias, undef, super, yield, callcc, caller, lambda, proc
+  hi Keyword                   ctermfg=243
 
   "rubyIdentifier
   "@var, @@var, $var, etc
@@ -182,11 +190,8 @@ if &t_Co > 255
 
   "rubyInclude
   "include, autoload, extend, load, require
-  hi Include                   ctermfg=130 cterm=NONE
+  hi Include                   ctermfg=251
 
-  "rubyKeyword, rubyKeywordAsMethod
-  "alias, undef, super, yield, callcc, caller, lambda, proc
-  hi Keyword                   ctermfg=130
 
   " same as define
   hi Macro                     ctermfg=130 cterm=NONE
@@ -202,10 +207,10 @@ if &t_Co > 255
 
   "rubyControl, rubyAccess, rubyEval
   "case, begin, do, for, if unless, while, until else, etc.
-  hi Statement                 ctermfg=130 cterm=NONE
+  hi Statement                 ctermfg=243
 
   "rubyString
-  hi String                    ctermfg=118
+  hi String                    ctermfg=67
 
   hi Title                     ctermfg=16
 
