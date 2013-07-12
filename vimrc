@@ -158,6 +158,9 @@ map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
 map <leader>a :CommandT app/assets/javascripts/<cr>
 " YankRing
 nnoremap <silent> <leader>z :YRShow<CR>
+" Youcompleteme
+let g:ycm_complete_in_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
