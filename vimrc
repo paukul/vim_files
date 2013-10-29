@@ -32,21 +32,26 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/Rename2'
 Bundle 'tpope/vim-endwise'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'skalnik/vim-vroom'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'jpalardy/vim-slime'
 Bundle 'smerrill/vcl-vim-plugin'
 Bundle 'slim-template/vim-slim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'airblade/vim-gitgutter'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "jnwhiteh/vim-golang.git"
 
 " vim-slime
 let g:slime_target = "tmux"
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
 
 set modelines=0
 
@@ -78,7 +83,7 @@ set hidden " Allow unsafed buffers
 set wildignore+=gems/gems/*,doc/*,tmp/*,vendor/gems/*,.git,*.rbc,*.class,.svn,*.o,*.obj,public/assets/*,*.png,*.log,*.jpg,.bundle
 set wildmenu
 set wildmode=list:longest
-set guifont="Menlo for Powerline":h22
+set guifont="Inconsolata-dz for Powerline":h22
 set laststatus=2 " always display the status line
 set showcmd
 
@@ -164,6 +169,9 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
+
+" use the silver searcher instead of ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " a little more informative version of the above
 nmap <Leader>l :call <SID>SynStack()<CR>
