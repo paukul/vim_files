@@ -120,6 +120,8 @@ nnoremap ` '
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 au BufNewFile,BufRead *.json set ft=javascript
 
+au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+
 if isMac
   " copy stuff to the macs clipboard
   vmap <leader>c "+y
