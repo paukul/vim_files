@@ -15,10 +15,12 @@ set rtp+=/usr/local/opt/go/misc/vim
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 
+Bundle "ekalinin/Dockerfile.vim"
+Bundle 'wting/rust.vim'
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails.git'
-Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'ddollar/nerdcommenter'
@@ -26,7 +28,6 @@ Bundle 'tsaleh/vim-align'
 Bundle 'tpope/vim-repeat'
 " Bundle 'ervandew/supertab'
 Bundle 'oscarh/vimerl'
-Bundle 'tpope/vim-rails'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kchmck/vim-coffee-script'
@@ -45,6 +46,7 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "jnwhiteh/vim-golang.git"
+Bundle "elixir-lang/vim-elixir"
 
 " vim-slime
 let g:slime_target = "tmux"
@@ -125,6 +127,7 @@ au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 if isMac
   " copy stuff to the macs clipboard
   vmap <leader>c "+y
+  set mouse=a
 endif
 
 " Mappings
@@ -158,11 +161,14 @@ let g:syntastic_quiet_warnings=1
 " supertab
 " let g:SuperTabDefaultCompletionType = "context"
 " Command-T
-let g:CommandTMaxHeight=20
-map <leader>t :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>f :CommandT<cr>
-map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
-map <leader>a :CommandT app/assets/javascripts/<cr>
+map <leader>f :CtrlP<CR>
+map <leader>b :CtrlPBuffer<cr>
+map <leader>m :CtrlPMRU<cr>
+" let g:CommandTMaxHeight=20
+" map <leader>t :CommandTFlush<cr>\|:CommandT<cr>
+" map <leader>f :CommandT<cr>
+" map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+" map <leader>a :CommandT app/assets/javascripts/<cr>
 " YankRing
 nnoremap <silent> <leader>z :YRShow<CR>
 " Youcompleteme
