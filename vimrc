@@ -11,10 +11,11 @@ endif
 filetype off
 " Get rid of vi compat crap
 set nocompatible
-set rtp+=/usr/local/opt/go/misc/vim
+" set rtp+=/usr/local/opt/go/misc/vim
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 
+Bundle 'dart-lang/dart-vim-plugin'
 Bundle "ekalinin/Dockerfile.vim"
 Bundle 'wting/rust.vim'
 Bundle 'gmarik/vundle'
@@ -45,8 +46,9 @@ Bundle 'airblade/vim-gitgutter'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
-Bundle "jnwhiteh/vim-golang.git"
+Bundle "fatih/vim-go"
 Bundle "elixir-lang/vim-elixir"
+Bundle 'edkolev/tmuxline.vim'
 
 " vim-slime
 let g:slime_target = "tmux"
@@ -122,7 +124,7 @@ nnoremap ` '
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 au BufNewFile,BufRead *.json set ft=javascript
 
-au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+" au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 
 if isMac
   " copy stuff to the macs clipboard
@@ -180,6 +182,9 @@ au WinEnter * set cursorline
 
 " use the silver searcher instead of ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+let g:go_fmt_command = "goimports"
+" let g:go_bin_path = "/usr/local/bin/"
 
 " a little more informative version of the above
 nmap <Leader>l :call <SID>SynStack()<CR>
