@@ -15,10 +15,10 @@ set nocompatible
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 
-Bundle 'dart-lang/dart-vim-plugin'
-Bundle "ekalinin/Dockerfile.vim"
-Bundle 'wting/rust.vim'
 Bundle 'gmarik/vundle'
+Bundle 'dart-lang/dart-vim-plugin'
+Bundle 'ekalinin/Dockerfile.vim'
+Bundle 'wting/rust.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails.git'
 Bundle 'kien/ctrlp.vim'
@@ -27,7 +27,6 @@ Bundle 'mileszs/ack.vim'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'tsaleh/vim-align'
 Bundle 'tpope/vim-repeat'
-" Bundle 'ervandew/supertab'
 Bundle 'oscarh/vimerl'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
@@ -36,19 +35,21 @@ Bundle 'vim-scripts/Rename2'
 Bundle 'tpope/vim-endwise'
 Bundle 'bling/vim-airline'
 Bundle 'skalnik/vim-vroom'
-Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'jpalardy/vim-slime'
 Bundle 'smerrill/vcl-vim-plugin'
 Bundle 'slim-template/vim-slim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'airblade/vim-gitgutter'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
+Bundle 'SirVer/ultisnips'
+Bundle "honza/vim-snippets"
 Bundle "fatih/vim-go"
 Bundle "elixir-lang/vim-elixir"
-Bundle 'edkolev/tmuxline.vim'
+
+let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsExpandTrigger="<NUL>" " ctrl + space
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 
 " vim-slime
 let g:slime_target = "tmux"
@@ -109,14 +110,14 @@ nnoremap k gk
 " use jj in insert mode to go back to normal mode
 inoremap jj <ESC>
 " Jump between windows
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-noremap <S-J> <C-W>j<C-W>_
-noremap <S-K> <C-W>k<C-W>_
-noremap <S-L> <C-W>l<C-W>_
-noremap <S-H> <C-W>h<C-W>_
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
+" noremap <S-J> <C-W>j<C-W>_
+" noremap <S-K> <C-W>k<C-W>_
+" noremap <S-L> <C-W>l<C-W>_
+" noremap <S-H> <C-W>h<C-W>_
 " make backtick behave like ' for marks
 nnoremap ` '
 
@@ -185,6 +186,9 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:go_fmt_command = "goimports"
 " let g:go_bin_path = "/usr/local/bin/"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
 
 " a little more informative version of the above
 nmap <Leader>l :call <SID>SynStack()<CR>
