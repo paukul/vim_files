@@ -25,7 +25,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'ddollar/nerdcommenter'
-Bundle 'tsaleh/vim-align'
+" Bundle 'tsaleh/vim-align'
+Bundle 'junegunn/vim-easy-align'
 Bundle 'tpope/vim-repeat'
 Bundle 'oscarh/vimerl'
 Bundle 'altercation/vim-colors-solarized'
@@ -45,6 +46,13 @@ Bundle 'SirVer/ultisnips'
 Bundle "honza/vim-snippets"
 Bundle "fatih/vim-go"
 Bundle "elixir-lang/vim-elixir"
+
+" EasyAlign
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsExpandTrigger="<NUL>" " ctrl + space
@@ -66,6 +74,8 @@ set encoding=utf-8 " Encoding to UTF-8
 
 " Whitespace and syntax stuff
 syntax on
+" set background=light
+" color solarized
 color hardcore
 set nowrap
 set tabstop=2
@@ -85,7 +95,7 @@ set ttyfast
 set lazyredraw " buffer screen redraws instead of updating all the time
 
 set hidden " Allow unsafed buffers
-set wildignore+=gems/gems/*,doc/*,tmp/*,vendor/gems/*,.git,*.rbc,*.class,.svn,*.o,*.obj,public/assets/*,*.png,*.log,*.jpg,.bundle
+set wildignore+=*/gems/gems/*,*/doc/*,*/tmp/*,*/vendor/gems/*,.git,*.rbc,*.class,.svn,*.o,*.obj,public/assets/*,*.png,*.log,*.jpg,.bundle,*/public/system/*
 set wildmenu
 set wildmode=list:longest
 set guifont="Inconsolata-dz for Powerline":h22
