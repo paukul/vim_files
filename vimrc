@@ -12,10 +12,11 @@ filetype off
 " Get rid of vi compat crap
 set nocompatible
 " set rtp+=/usr/local/opt/go/misc/vim
-set rtp+=~/.vim/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Bundle 'VundleVim/Vundle.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 Bundle 'dart-lang/dart-vim-plugin'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'wting/rust.vim'
@@ -47,6 +48,8 @@ Bundle "honza/vim-snippets"
 Bundle "fatih/vim-go"
 Bundle "elixir-lang/vim-elixir"
 
+call vundle#end()
+
 " EasyAlign
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
@@ -55,7 +58,8 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 let g:UltiSnipsUsePythonVersion = 2
-let g:UltiSnipsExpandTrigger="<NUL>" " ctrl + space
+"let g:UltiSnipsExpandTrigger="<NUL>" " ctrl + space
+let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 
