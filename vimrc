@@ -21,22 +21,18 @@ Bundle 'dart-lang/dart-vim-plugin'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'wting/rust.vim'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-rails.git'
+Plugin 'mattn/emmet-vim'
+Bundle 'tpope/vim-haml'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/YankRing.vim'
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'ddollar/nerdcommenter'
-" Bundle 'tsaleh/vim-align'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'tpope/vim-repeat'
-Bundle 'oscarh/vimerl'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/Rename2'
 Bundle 'tpope/vim-endwise'
 Bundle 'bling/vim-airline'
-Bundle 'skalnik/vim-vroom'
 Bundle 'tpope/vim-fugitive'
 Bundle 'jpalardy/vim-slime'
 Bundle 'smerrill/vcl-vim-plugin'
@@ -88,7 +84,7 @@ set softtabstop=2
 set expandtab
 set backspace=indent,eol,start
 set autoindent
-set list listchars=tab:\ \ ,trail:·
+set list listchars=tab:\ \ ,trail:ï¿½
 
 filetype plugin indent on " indent depends on filetype
 filetype plugin on
@@ -112,7 +108,7 @@ set smartcase  " ...search phrase contains a capital letter
 set incsearch
 set showmatch
 set hlsearch " highlight searches and unhighlight search results with <space>
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> 
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " Have sane search regexpes
 nnoremap / /\v
 vnoremap / /\v
@@ -170,33 +166,23 @@ endif
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
 
-" Plugins
-" Syntastic
-" Enable syntastic syntax checking
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
-" supertab
-" let g:SuperTabDefaultCompletionType = "context"
-" Command-T
 map <leader>f :CtrlP<CR>
 map <leader>b :CtrlPBuffer<cr>
 map <leader>m :CtrlPMRU<cr>
-" let g:CommandTMaxHeight=20
-" map <leader>t :CommandTFlush<cr>\|:CommandT<cr>
-" map <leader>f :CommandT<cr>
-" map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
-" map <leader>a :CommandT app/assets/javascripts/<cr>
-" YankRing
+
 nnoremap <silent> <leader>z :YRShow<CR>
 " Youcompleteme
 let g:ycm_complete_in_comments_and_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" close the autocomplete window after completion is done
+autocmd CompleteDone * pclose
+
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
 
-" use the silver searcher instead of ack
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" Ag grep foobar
+let g:ag_working_path_mode="r"
 
 let g:go_fmt_command = "goimports"
 " let g:go_bin_path = "/usr/local/bin/"
