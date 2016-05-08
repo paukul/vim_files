@@ -12,39 +12,38 @@ filetype off
 " Get rid of vi compat crap
 set nocompatible
 " set rtp+=/usr/local/opt/go/misc/vim
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
-Bundle 'VundleVim/Vundle.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Bundle 'dart-lang/dart-vim-plugin'
-Bundle 'ekalinin/Dockerfile.vim'
-Bundle 'wting/rust.vim'
-Bundle 'tpope/vim-surround'
-Plugin 'mattn/emmet-vim'
-Bundle 'tpope/vim-haml'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/YankRing.vim'
-Bundle 'rking/ag.vim'
-Bundle 'ddollar/nerdcommenter'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'tpope/vim-repeat'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'vim-scripts/Rename2'
-Bundle 'tpope/vim-endwise'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'jpalardy/vim-slime'
-Bundle 'smerrill/vcl-vim-plugin'
-Bundle 'slim-template/vim-slim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'SirVer/ultisnips'
-Bundle "honza/vim-snippets"
-Bundle "fatih/vim-go"
-Bundle "elixir-lang/vim-elixir"
+Plug 'VundleVim/Vundle.vim'
+Plug 'fxn/vim-monochrome'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'wting/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-haml'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'rking/ag.vim'
+Plug 'ddollar/nerdcommenter'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-repeat'
+Plug 'kchmck/vim-coffee-script'
+Plug 'vim-scripts/Rename2'
+Plug 'tpope/vim-endwise'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'smerrill/vcl-vim-plugin'
+Plug 'slim-template/vim-slim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'airblade/vim-gitgutter'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'fatih/vim-go'
+Plug 'elixir-lang/vim-elixir'
 
-call vundle#end()
+call plug#end()
 
 " EasyAlign
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
