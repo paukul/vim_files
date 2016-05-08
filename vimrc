@@ -10,7 +10,9 @@ endif
 
 filetype off
 " Get rid of vi compat crap
-set nocompatible
+if &compatible
+  set nocompatible
+endif
 " set rtp+=/usr/local/opt/go/misc/vim
 call plug#begin('~/.vim/plugged')
 
