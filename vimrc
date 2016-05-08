@@ -59,6 +59,7 @@ let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+let g:ctrlp_max_files = 25000
 
 " vim-slime
 let g:slime_target = "tmux"
@@ -85,7 +86,7 @@ set softtabstop=2
 set expandtab
 set backspace=indent,eol,start
 set autoindent
-set list listchars=tab:\ \ ,trail:�
+set list listchars=tab:\ \ ,trail:·
 
 filetype plugin indent on " indent depends on filetype
 filetype plugin on
