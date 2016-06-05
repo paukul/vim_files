@@ -17,13 +17,13 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'VundleVim/Vundle.vim'
+Plug 'cespare/vim-toml'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'fxn/vim-monochrome'
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/seoul256.vim'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'wting/rust.vim'
-Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-haml'
@@ -45,6 +45,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'fatih/vim-go'
 Plug 'elixir-lang/vim-elixir'
+Plug 'whatyouhide/vim-gotham'
 
 call plug#end()
 
@@ -79,7 +80,12 @@ set encoding=utf-8 " Encoding to UTF-8
 syntax on
 " set background=light
 " color solarized
-color hardcore
+" color hardcore
+let g:seoul256_background = 233
+color seoul256
+" color gotham256
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 set nowrap
 set tabstop=2
 set shiftwidth=2
@@ -195,6 +201,9 @@ let g:go_highlight_structs = 1
 
 " a little more informative version of the above
 nmap <Leader>l :call <SID>SynStack()<CR>
+
+let $RUST_SRC_PATH = '$HOME/.cargo/src/rustc-1.8.0/src'
+let g:rustfmt_autosave = 1 " auto format rust files on save
 
 function! <SID>SynStack()
   if !exists("*synstack")
