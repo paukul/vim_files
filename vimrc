@@ -17,6 +17,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'VundleVim/Vundle.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'fxn/vim-monochrome'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ekalinin/Dockerfile.vim'
@@ -25,7 +27,6 @@ Plug 'racer-rust/vim-racer'
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-haml'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'rking/ag.vim'
 Plug 'ddollar/nerdcommenter'
@@ -168,9 +169,9 @@ endif
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
 
-map <leader>f :CtrlP<CR>
-map <leader>b :CtrlPBuffer<cr>
-map <leader>m :CtrlPMRU<cr>
+let g:fzf_command_prefix = 'Fzf'
+map <leader>b :FzfBuffers<cr>
+map <leader>f :FzfFiles<cr>
 
 nnoremap <silent> <leader>z :YRShow<CR>
 " Youcompleteme
