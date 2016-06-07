@@ -205,7 +205,7 @@ let g:go_highlight_structs = 1
 nmap <Leader>l :call <SID>SynStack()<CR>
 
 let $RUST_SRC_PATH = '$HOME/.cargo/src/rustc-1.8.0/src'
-let g:rustfmt_autosave = 1 " auto format rust files on save
+let g:rustfmt_autosave = 0 " auto format rust files on save
 
 function! <SID>SynStack()
   if !exists("*synstack")
