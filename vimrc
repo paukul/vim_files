@@ -13,6 +13,7 @@ filetype off
 if &compatible
   set nocompatible
 endif
+
 " set rtp+=/usr/local/opt/go/misc/vim
 call plug#begin('~/.vim/plugged')
 
@@ -46,6 +47,7 @@ Plug 'honza/vim-snippets'
 Plug 'fatih/vim-go'
 Plug 'elixir-lang/vim-elixir'
 Plug 'whatyouhide/vim-gotham'
+Plug 'rizzatti/dash.vim'
 
 call plug#end()
 
