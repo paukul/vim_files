@@ -81,10 +81,10 @@ syntax on
 " set background=light
 " color solarized
 " color hardcore
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:seoul256_background = 233
 color seoul256
 " color gotham256
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set nowrap
 set tabstop=2
@@ -211,4 +211,3 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-set t_Co=256
