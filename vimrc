@@ -14,15 +14,18 @@ if &compatible
   set nocompatible
 endif
 
+set termguicolors
+
 " set rtp+=/usr/local/opt/go/misc/vim
 call plug#begin('~/.vim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'cespare/vim-toml'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'fxn/vim-monochrome'
 Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/goyo.vim'
+Plug 'fxn/vim-monochrome'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-surround'
@@ -31,9 +34,7 @@ Plug 'tpope/vim-haml'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'rking/ag.vim'
 Plug 'ddollar/nerdcommenter'
-Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-repeat'
-Plug 'kchmck/vim-coffee-script'
 Plug 'vim-scripts/Rename2'
 Plug 'tpope/vim-endwise'
 Plug 'bling/vim-airline'
@@ -48,6 +49,8 @@ Plug 'fatih/vim-go'
 Plug 'elixir-lang/vim-elixir'
 Plug 'whatyouhide/vim-gotham'
 Plug 'rizzatti/dash.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -71,6 +74,7 @@ let g:slime_target = "tmux"
 " Powerline
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
+let g:airline_theme='onedark'
 
 set modelines=0
 
@@ -84,9 +88,10 @@ syntax on
 " color solarized
 " color hardcore
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let g:seoul256_background = 233
-color seoul256
+" let g:seoul256_background = 233
+" color seoul256
 " color gotham256
+color onedark
 
 set nowrap
 set tabstop=2
@@ -196,6 +201,8 @@ au WinEnter * set cursorline
 let g:ag_working_path_mode="r"
 
 let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 " let g:go_bin_path = "/usr/local/bin/"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -206,6 +213,15 @@ nmap <Leader>l :call <SID>SynStack()<CR>
 
 let $RUST_SRC_PATH = '$HOME/.cargo/src/rustc-1.8.0/src'
 let g:rustfmt_autosave = 0 " auto format rust files on save
+
+" nerdtree
+" Start NERDTree when vim starts
+autocmd VimEnter * NERDTree
+" Jump to the main window.
+autocmd VimEnter * wincmd p
+map <Leader>t :NERDTreeToggle<CR>
+" close vim if nerdtree is last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 function! <SID>SynStack()
   if !exists("*synstack")
