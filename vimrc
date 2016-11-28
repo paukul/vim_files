@@ -126,8 +126,8 @@ set showmatch
 set hlsearch " highlight searches and unhighlight search results with <space>
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " Have sane search regexpes
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 " Movement
 " Have screen-line j/k instead of file-line
