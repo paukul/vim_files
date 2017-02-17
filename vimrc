@@ -20,6 +20,12 @@ set termguicolors
 call plug#begin('~/.vim/plugged')
 
 Plug 'cespare/vim-toml'
+Plug 'StanAngeloff/php.vim'
+Plug 'mxw/vim-jsx'
+Plug 'isRuslan/vim-es6'
+Plug 'terryma/vim-multiple-cursors'
+let g:multi_cursor_start_key='<C-m>'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/seoul256.vim'
@@ -32,7 +38,9 @@ Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-haml'
 Plug 'vim-scripts/YankRing.vim'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
+let g:ackprg = 'ag --vimgrep --smart-case'
+
 Plug 'ddollar/nerdcommenter'
 Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/Rename2'
@@ -92,6 +100,12 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " color seoul256
 " color gotham256
 color onedark
+" overwrite the standard bg color of onedark
+" let bgcol="#333333"
+" hi Normal guibg=bgcol
+
+" Allow jsx in .js files
+let g:jsx_ext_required = 0
 
 set nowrap
 set tabstop=2
