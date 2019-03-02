@@ -14,6 +14,16 @@ if &compatible
   set nocompatible
 endif
 
+if exists('$TMUX')
+  " Colors in tmux
+  let &t_8f = "<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "<Esc>[48;2;%lu;%lu;%lum"
+endif
+" use the terminal bg for ALL colorschemes
+autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
+
+set background=dark
+set t_ut=
 set termguicolors
 
 " set rtp+=/usr/local/opt/go/misc/vim
@@ -36,6 +46,10 @@ Plug 'isRuslan/vim-es6'
 Plug 'terryma/vim-multiple-cursors'
 let g:multi_cursor_start_key='<C-m>'
 
+Plug 'dracula/vim'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'roxma/vim-tmux-clipboard'
+set clipboard=unnamed
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/seoul256.vim'
@@ -78,7 +92,7 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsUsePythonVersion = 3
 "let g:UltiSnipsExpandTrigger="<NUL>" " ctrl + space
 let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
@@ -108,7 +122,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " let g:seoul256_background = 233
 " color seoul256
 " color gotham256
-color onedark
+" color onedark
+color dracula
 " overwrite the standard bg color of onedark
 " let bgcol="#333333"
 " hi Normal guibg=bgcol
@@ -191,8 +206,8 @@ nnoremap <leader><leader> <c-^>
 
 " Vim internals
 " Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+set backupdir=~/.config/nvim/backup
+set directory=~/.config/nvim/backup
 set timeoutlen=250  " Time to wait after ESC
 set nobackup
 set noswapfile
@@ -237,6 +252,7 @@ autocmd VimEnter * NERDTree
 " Jump to the main window.
 autocmd VimEnter * wincmd p
 map <Leader>t :NERDTreeToggle<CR>
+let g:NERDTreeWinSize=22
 " close vim if nerdtree is last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
