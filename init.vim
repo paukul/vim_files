@@ -36,7 +36,10 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'fishbullet/deoplete-ruby'
+set completeopt-=preview
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:deoplete#enable_at_startup = 1
 Plug 'vim-syntastic/syntastic'
 Plug 'cespare/vim-toml'
@@ -50,6 +53,7 @@ Plug 'dracula/vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 set clipboard=unnamed
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/seoul256.vim'
@@ -76,7 +80,7 @@ Plug 'slim-template/vim-slim'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'elixir-lang/vim-elixir'
 Plug 'whatyouhide/vim-gotham'
 Plug 'rizzatti/dash.vim'
@@ -94,10 +98,10 @@ nmap ga <Plug>(EasyAlign)
 
 let g:UltiSnipsUsePythonVersion = 3
 "let g:UltiSnipsExpandTrigger="<NUL>" " ctrl + space
-let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-k>"
-let g:UltiSnipsJumpBackwardTrigger="<c-j>"
-let g:ctrlp_max_files = 25000
+" let g:UltiSnipsExpandTrigger="<c-l>"
+" let g:UltiSnipsJumpForwardTrigger="<c-k>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+" let g:ctrlp_max_files = 25000
 
 " vim-slime
 let g:slime_target = "tmux"
@@ -191,10 +195,10 @@ au BufNewFile,BufRead *.json set ft=javascript
 
 " au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 
+set mouse=a
 if isMac
   " copy stuff to the macs clipboard
   vmap <leader>c "+y
-  set mouse=a
 endif
 
 " Mappings
