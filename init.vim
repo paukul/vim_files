@@ -49,6 +49,7 @@ Plug 'isRuslan/vim-es6'
 Plug 'terryma/vim-multiple-cursors'
 let g:multi_cursor_start_key='<C-m>'
 
+Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
@@ -127,7 +128,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " color seoul256
 " color gotham256
 " color onedark
-color dracula
+" color dracula
+color nord
 " overwrite the standard bg color of onedark
 " let bgcol="#333333"
 " hi Normal guibg=bgcol
