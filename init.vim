@@ -70,6 +70,7 @@ Plug 'vim-scripts/YankRing.vim'
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --vimgrep --smart-case'
 
+Plug 'posva/vim-vue'
 Plug 'ddollar/nerdcommenter'
 Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/Rename2'
