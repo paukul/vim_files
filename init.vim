@@ -41,7 +41,15 @@ Plug 'fishbullet/deoplete-ruby'
 set completeopt-=preview
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:deoplete#enable_at_startup = 1
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
+\}
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_fix_on_save = 1
 Plug 'cespare/vim-toml'
 Plug 'StanAngeloff/php.vim'
 Plug 'mxw/vim-jsx'
@@ -53,8 +61,9 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
-set clipboard=unnamed
+set clipboard=unnamedplus
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/seoul256.vim'
@@ -230,6 +239,7 @@ let macvim_hig_shift_movement = 1
 let g:fzf_command_prefix = 'Fzf'
 map <leader>b :FzfBuffers<cr>
 map <leader>f :FzfFiles<cr>
+map <leader>r :FzfRg<cr>
 
 nnoremap <silent> <leader>z :YRShow<CR>
 
