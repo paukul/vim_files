@@ -14,6 +14,10 @@ if &compatible
   set nocompatible
 endif
 
+set background=dark
+set t_ut=
+" set termguicolors
+
 if exists('$TMUX')
   " Colors in tmux
   let &t_8f = "<Esc>[38;2;%lu;%lu;%lum"
@@ -22,13 +26,11 @@ endif
 " use the terminal bg for ALL colorschemes
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 
-set background=dark
-set t_ut=
-set termguicolors
 
 " set rtp+=/usr/local/opt/go/misc/vim
 call plug#begin('~/.vim/plugged')
 
+" Linters and autocomplete
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -41,7 +43,6 @@ Plug 'fishbullet/deoplete-ruby'
 set completeopt-=preview
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:deoplete#enable_at_startup = 1
-" Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -50,53 +51,55 @@ let g:ale_fixers = {
 \}
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_fix_on_save = 1
-Plug 'cespare/vim-toml'
+
+" Language Support
+Plug 'slim-template/vim-slim'
 Plug 'StanAngeloff/php.vim'
+Plug 'cespare/vim-toml'
 Plug 'mxw/vim-jsx'
 Plug 'isRuslan/vim-es6'
-Plug 'terryma/vim-multiple-cursors'
-let g:multi_cursor_start_key='<C-m>'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-haml'
+Plug 'posva/vim-vue'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'elixir-lang/vim-elixir'
 
+" Colorthemes
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'fxn/vim-monochrome'
+Plug 'whatyouhide/vim-gotham'
+Plug 'joshdick/onedark.vim'
+
+" Tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 set clipboard=unnamedplus
 Plug 'christoomey/vim-tmux-navigator'
+
+" Utility
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
-Plug 'fxn/vim-monochrome'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-surround'
-Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-haml'
 Plug 'vim-scripts/YankRing.vim'
-Plug 'mileszs/ack.vim'
-let g:ackprg = 'ag --vimgrep --smart-case'
-
-Plug 'posva/vim-vue'
 Plug 'ddollar/nerdcommenter'
 Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/Rename2'
 Plug 'tpope/vim-endwise'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'smerrill/vcl-vim-plugin'
-Plug 'slim-template/vim-slim'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'elixir-lang/vim-elixir'
-Plug 'whatyouhide/vim-gotham'
-Plug 'rizzatti/dash.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'joshdick/onedark.vim'
+Plug 'terryma/vim-multiple-cursors'
+let g:multi_cursor_start_key='<C-m>'
 
 call plug#end()
 
@@ -114,39 +117,12 @@ let g:UltiSnipsUsePythonVersion = 3
 " let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 " let g:ctrlp_max_files = 25000
 
-" vim-slime
-let g:slime_target = "tmux"
-
 " Powerline
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
-let g:airline_theme='onedark'
+let g:airline_theme='nord'
 
-set modelines=0
-
-set number " line numbers
-set ruler
-set encoding=utf-8 " Encoding to UTF-8
-
-" Whitespace and syntax stuff
-syntax on
-" set background=light
-" color solarized
-" color hardcore
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" let g:seoul256_background = 233
-" color seoul256
-" color gotham256
-" color onedark
-" color dracula
-color nord
-" overwrite the standard bg color of onedark
-" let bgcol="#333333"
-" hi Normal guibg=bgcol
-
-" Allow jsx in .js files
-let g:jsx_ext_required = 0
-
+" misc
 set nowrap
 set tabstop=2
 set shiftwidth=2
@@ -155,15 +131,13 @@ set expandtab
 set backspace=indent,eol,start
 set autoindent
 set list listchars=tab:\ \ ,trail:·
-
-filetype plugin indent on " indent depends on filetype
-filetype plugin on
-
-" misc
+set modelines=0
+set number " line numbers
+set ruler
+set encoding=utf-8 " Encoding to UTF-8
 set visualbell
 set ttyfast
 set lazyredraw " buffer screen redraws instead of updating all the time
-
 set hidden " Allow unsafed buffers
 set wildignore+=*/gems/gems/*,*/doc/*,*/tmp/*,*/vendor/gems/*,.git,*.rbc,*.class,.svn,*.o,*.obj,public/assets/*,*.png,*.log,*.jpg,.bundle,*/public/system/*
 set wildmenu
@@ -172,6 +146,17 @@ set guifont="Inconsolata-dz for Powerline":h22
 set laststatus=2 " always display the status line
 set showcmd
 
+" Whitespace and syntax stuff
+syntax on
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+color nord
+
+" Allow jsx in .js files
+let g:jsx_ext_required = 0
+
+filetype plugin indent on " indent depends on filetype
+filetype plugin on
+
 " Search
 set ignorecase " search case insensitive unless...
 set smartcase  " ...search phrase contains a capital letter
@@ -179,9 +164,6 @@ set incsearch
 set showmatch
 set hlsearch " highlight searches and unhighlight search results with <space>
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-" Have sane search regexpes
-" nnoremap / /\v
-" vnoremap / /\v
 
 " Movement
 " Have screen-line j/k instead of file-line
@@ -189,24 +171,14 @@ nnoremap j gj
 nnoremap k gk
 " use jj in insert mode to go back to normal mode
 inoremap jj <ESC>
-" Jump between windows
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
-" noremap <S-J> <C-W>j<C-W>_
-" noremap <S-K> <C-W>k<C-W>_
-" noremap <S-L> <C-W>l<C-W>_
-" noremap <S-H> <C-W>h<C-W>_
 " make backtick behave like ' for marks
 nnoremap ` '
 
 " Filetypes
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 au BufNewFile,BufRead *.json set ft=javascript
-
 " au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-
+" enable mouse
 set mouse=a
 if isMac
   " copy stuff to the macs clipboard
@@ -217,7 +189,7 @@ endif
 " Opens an edit command with the path of the currently edited file filled in
 cnoremap %% <C-R>=expand("%:p:h")."/"<CR>
 map <leader>e :e %%
-" Switch between current and previous buffer
+" Double tap <leader> to switch between current and previous buffer
 nnoremap <leader><leader> <c-^>
 
 " Vim internals
@@ -228,14 +200,7 @@ set timeoutlen=250  " Time to wait after ESC
 set nobackup
 set noswapfile
 
-if has("gui_running")
-  " Automatically resize splits when resizing MacVim window
-  autocmd VimResized * wincmd =
-endif
-
-" MacVIM shift+arrow-keys behavior (required in .vimrc)
-let macvim_hig_shift_movement = 1
-
+" FzF
 let g:fzf_command_prefix = 'Fzf'
 map <leader>b :FzfBuffers<cr>
 map <leader>f :FzfFiles<cr>
@@ -243,12 +208,11 @@ map <leader>r :FzfRg<cr>
 
 nnoremap <silent> <leader>z :YRShow<CR>
 
+" Only show cursorline in active window
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
 
-" Ag grep foobar
-let g:ag_working_path_mode="r"
-
+" Golang
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
@@ -257,9 +221,10 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
-" a little more informative version of the above
+" Show vim syntax selector under cursor
 nmap <Leader>l :call <SID>SynStack()<CR>
 
+" TODO: Check if still needed
 let $RUST_SRC_PATH = '$HOME/.cargo/src/rustc-1.8.0/src'
 let g:rustfmt_autosave = 0 " auto format rust files on save
 

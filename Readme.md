@@ -1,6 +1,7 @@
-Command-T:
-==========
-cd ~/.vim/bundle/command-t/ruby/command-t
-RBENV_VERSION=system ruby extconf.rb
-make
+Config made for neovim
+Clone into ~/.config/nvim then run
 
+```
+:PlugInstall
+:UpdateRemotePlugins
+```
