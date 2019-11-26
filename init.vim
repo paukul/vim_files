@@ -30,7 +30,7 @@ autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 " set rtp+=/usr/local/opt/go/misc/vim
 call plug#begin('~/.vim/plugged')
 
-" Linters and autocomplete
+"Linters and autocomplete
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -38,9 +38,29 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-Plug 'fishbullet/deoplete-ruby'
-set completeopt-=preview
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+" Plug 'fishbullet/deoplete-ruby'
+set completeopt-=menu,preview
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:deoplete#enable_at_startup = 1
 Plug 'w0rp/ale'
@@ -57,6 +77,7 @@ Plug 'slim-template/vim-slim'
 Plug 'StanAngeloff/php.vim'
 Plug 'cespare/vim-toml'
 Plug 'mxw/vim-jsx'
+Plug 'dag/vim-fish'
 Plug 'isRuslan/vim-es6'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'rust-lang/rust.vim'
