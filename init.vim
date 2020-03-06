@@ -66,11 +66,21 @@ let g:deoplete#enable_at_startup = 1
 Plug 'w0rp/ale'
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
+\   'javascript': ['prettier'],
 \   'ruby': ['rubocop'],
 \}
+let g:ale_linters = {'rust': ['rustc', 'cargo'] }
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_fix_on_save = 1
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:ale_pattern_options = {'medipack': {'ale_fixers':
+\    {
+\      '*': ['remove_trailing_lines', 'trim_whitespace'],
+\      'javascript': ['prettier'],
+\    }
+\  }
+\}
 
 " Language Support
 Plug 'slim-template/vim-slim'
@@ -78,6 +88,8 @@ Plug 'StanAngeloff/php.vim'
 Plug 'cespare/vim-toml'
 Plug 'mxw/vim-jsx'
 Plug 'dag/vim-fish'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'othree/yajs.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'rust-lang/rust.vim'
@@ -86,6 +98,20 @@ Plug 'tpope/vim-haml'
 Plug 'posva/vim-vue'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'elixir-lang/vim-elixir'
+
+Plug 'autozimu/LanguageClient-neovim', {
+\ 'branch': 'next',
+\ 'do': 'bash install.sh',
+\ }
+
+let g:LanguageClient_serverCommands = {
+\ 'javascript': ['javascript-typescript-stdio'],
+\ 'javascript.jsx': ['javascript-typescript-stdio']
+\ }
+nnoremap <leader>l :call LanguageClient_contextMenu()<CR>
+nnoremap K :call LanguageClient#textDocument_hover()<CR>
+nnoremap gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>r :call LanguageClient#textDocument_rename()<CR>
 
 " Colorthemes
 Plug 'arcticicestudio/nord-vim'
@@ -243,7 +269,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
 " Show vim syntax selector under cursor
-nmap <Leader>l :call <SID>SynStack()<CR>
+" nmap <Leader>l :call <SID>SynStack()<CR>
 
 " TODO: Check if still needed
 let $RUST_SRC_PATH = '$HOME/.cargo/src/rustc-1.8.0/src'
