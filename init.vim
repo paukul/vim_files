@@ -31,45 +31,20 @@ autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 call plug#begin('~/.vim/plugged')
 
 "Linters and autocomplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-    \ }
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-" Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-" Plug 'fishbullet/deoplete-ruby'
-set completeopt-=menu,preview
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:deoplete#enable_at_startup = 1
 Plug 'w0rp/ale'
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier'],
 \   'ruby': ['rubocop'],
 \}
-let g:ale_linters = {'rust': ['rustc', 'cargo'] }
+let g:ale_linters = {
+\   'c': [], 'cpp': [], 'rust': [], 'go': [], 'python': [], 'sh': [],
+\   'html': [], 'css': [], 'javascript': [], 'typescript': [], 'reason': [],
+\   'json': [], 'vue': [],
+\   'tex': [], 'latex': [], 'bib': [], 'bibtex': []
+\ }
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '❌'
@@ -285,6 +260,10 @@ let g:NERDTreeWinSize=22
 " close vim if nerdtree is last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" allow others to easier work on my machine by mapping ctrl+s to save
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
