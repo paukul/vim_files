@@ -128,19 +128,19 @@ Plug 'posva/vim-vue'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'elixir-lang/vim-elixir'
 
-Plug 'autozimu/LanguageClient-neovim', {
-\ 'branch': 'next',
-\ 'do': 'bash install.sh',
-\ }
+" Plug 'autozimu/LanguageClient-neovim', {
+" \ 'branch': 'next',
+" \ 'do': 'bash install.sh',
+" \ }
 
-let g:LanguageClient_serverCommands = {
-\ 'javascript': ['javascript-typescript-stdio'],
-\ 'javascript.jsx': ['javascript-typescript-stdio']
-\ }
-nnoremap <leader>l :call LanguageClient_contextMenu()<CR>
-nnoremap K :call LanguageClient#textDocument_hover()<CR>
-nnoremap gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <leader>r :call LanguageClient#textDocument_rename()<CR>
+" let g:LanguageClient_serverCommands = {
+" \ 'javascript': ['javascript-typescript-stdio'],
+" \ 'javascript.jsx': ['javascript-typescript-stdio']
+" \ }
+" nnoremap <leader>l :call LanguageClient_contextMenu()<CR>
+" nnoremap K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <leader>r :call LanguageClient#textDocument_rename()<CR>
 
 " Colorthemes
 Plug 'arcticicestudio/nord-vim'
@@ -149,6 +149,18 @@ Plug 'junegunn/seoul256.vim'
 Plug 'fxn/vim-monochrome'
 Plug 'whatyouhide/vim-gotham'
 Plug 'joshdick/onedark.vim'
+
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 
 " Tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
